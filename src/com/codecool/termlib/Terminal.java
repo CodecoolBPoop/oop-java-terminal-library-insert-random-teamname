@@ -117,4 +117,8 @@ public class Terminal {
      */
     private void command(String commandString) {
     }
+
+    public void sayHello() {
+        System.out.println("Hello");
+    }
 }
