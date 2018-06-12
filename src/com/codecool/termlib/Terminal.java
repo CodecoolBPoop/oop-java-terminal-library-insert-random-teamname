@@ -143,16 +143,23 @@ public class Terminal {
         Scanner input = new Scanner(System.in);
         clearScreen();
         System.out.println("Please select a number");
-        System.out.println("1. Start game");
-        System.out.println("2. Rulebook");
+        System.out.println("1. Player VS Comp");
+        System.out.println("2. Player VS Player");
+        System.out.println("3. Rulebook");
         System.out.println("0. Quit");
         char choice = input.next().charAt(0);
         switch(choice){
             case '1': {
-                play.game();
+                String randomWord = player.chooseRandomWord();
+                play.game(randomWord);
                 break;
             }
             case '2': {
+                String randomWord = player.userWord();
+                play.game(randomWord);
+                break;
+            }
+            case '3': {
                 player.ruleBook();
                 break;
             }
@@ -174,18 +181,25 @@ public class Terminal {
         System.out.println("4. In order to win fill in the blanks before losing all your lives");
         System.out.println();
         System.out.println("Please select a number");
-        System.out.print("1. Start game  ");
-        System.out.print("  2. Go back  ");
+        System.out.print("1. Player VS Computer  ");
+        System.out.print("  2. Player VS Player  ");
+        System.out.print("  3. Go back  ");
         System.out.print("  0. Quit");
         System.out.println();
         Scanner input = new Scanner(System.in);
         char choice = input.next().charAt(0);
         switch(choice){
             case '1': {
-                play.game();
+                String randomWord = player.chooseRandomWord();
+                play.game(randomWord);
                 break;
             }
             case '2': {
+                String randomWord = player.userWord();
+                play.game(randomWord);
+                break;
+            }
+            case '3': {
                 player.startMenu();
                 break;
             }
@@ -206,9 +220,9 @@ public class Terminal {
         Game play = new Game();
         if (Arrays.equals(letterToGuess, board)) {
             System.out.println("You Won");
-            player.reStart();
+            player.restart();
             Scanner input = new Scanner(System.in);
-                    }
+        }
     }
 
 
@@ -216,11 +230,11 @@ public class Terminal {
         Terminal player = new Terminal();
         clearScreen();
         System.out.println("YOU'VE LOST!");
-        player.reStart();
+        player.restart();
     }
 
 
-    public void reStart() {
+    public void restart() {
         Terminal player = new Terminal();
         System.out.println("Do you want to play again?");
         System.out.println("1. Yes");
@@ -233,10 +247,16 @@ public class Terminal {
                 break;
             }
             case '2': {
-                System.out.println("Goodbye!");
                 player.quit();
                 break;
             }
         }
+    }
+
+    public String userWord(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please input a word: ");
+        String word = input.nextLine().toLowerCase();
+        return word;
     }
 }
