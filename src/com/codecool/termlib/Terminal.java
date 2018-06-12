@@ -182,5 +182,23 @@ public class Terminal {
         }
     }
 
+    public void reStart() {
+        Terminal player = new Terminal();
+        System.out.println("Do you want to play again?");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+        Scanner input = new Scanner(System.in);
+        char restartChoice = input.next().charAt(0);
+        switch(restartChoice){
+            case '1': {
+                player.startMenu();
+                break;
+            }
+            case '2': {
+                System.out.println("Goodbye!");
+            }
+        }
+    }
+
 
 }
