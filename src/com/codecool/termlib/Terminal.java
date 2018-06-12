@@ -190,39 +190,35 @@ public class Terminal {
         Game play = new Game();
         if (Arrays.equals(letterToGuess, board)) {
             System.out.println("You Won");
-            System.out.println("1. Play again");
-            System.out.println("2. Exit");
+            player.reStart();
             Scanner input = new Scanner(System.in);
-            char choice = input.next().charAt(0);
-            switch(choice){
-                case '1': {
-                    play.game();
-                    break;
-                }
-                case '2': {
-                    System.exit(0);
-                    break;
-                }
-            }
-
-        }
-
-        
-        
+                    }
     }
 
 
     public void youLost(){
+        Terminal player = new Terminal();
         clearScreen();
         System.out.println("YOU'VE LOST!");
-        System.out.print("R - Restart");
-        System.out.println("      Press any key to quit");
-        Scanner userInput = new Scanner(System.in);
-        char chosenOption = userInput.next().charAt(0);
-        if (chosenOption == 'r' || chosenOption == 'R'){
-            ;
-        }else{
-            System.exit(0);
+        player.reStart();
+    }
+
+
+    public void reStart() {
+        Terminal player = new Terminal();
+        System.out.println("Do you want to play again?");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+        Scanner input = new Scanner(System.in);
+        char restartChoice = input.next().charAt(0);
+        switch(restartChoice){
+            case '1': {
+                player.startMenu();
+                break;
+            }
+            case '2': {
+                System.out.println("Goodbye!");
+            }
         }
     }
 }
