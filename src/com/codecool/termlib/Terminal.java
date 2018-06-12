@@ -234,6 +234,8 @@ public class Terminal {
             }
             case '2': {
                 System.out.println("Goodbye!");
+                player.quit();
+                break;
             }
         }
     }

@@ -24,14 +24,13 @@ public class Game {
             System.out.println(board);
             System.out.println();
             System.out.println("Used letters:" + usedLetters);
+            game.win(lettersToGuess, board);
             Scanner input = new Scanner(System.in);
             char guess = Character.toLowerCase(input.next().charAt(0));
             game.clearScreen();
             if (guess == '0') {
                 game.quit();
             }
-            game.win(lettersToGuess, board);
-            char guess = input.next().charAt(0);
             if (game.checkChar(usedLetters, guess)){
                 System.out.println("You've already guessed this letter!");
                 continue;
