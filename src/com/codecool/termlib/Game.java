@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public class Game {
 
     public void game() {
-        System.out.println("\033[H\033[2J");
         Terminal game = new Terminal();
         String wordToGuess = game.chooseRandomWord();
         char[] lettersToGuess = wordToGuess.toCharArray();
@@ -18,7 +17,7 @@ public class Game {
         ArrayList usedLetters = new ArrayList();
         int lives = 5;
         while (lives > 0) {
-
+            game.clearScreen();
             System.out.println("Lives: " + lives);
             System.out.print(board);
             System.out.println();
@@ -43,8 +42,8 @@ public class Game {
             } else {
                 lives -= 1;
             }
-
         }
+        game.youLost();
     }
 
 
