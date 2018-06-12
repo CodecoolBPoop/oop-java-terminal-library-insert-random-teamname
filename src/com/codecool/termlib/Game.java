@@ -23,6 +23,7 @@ public class Game {
             System.out.println();
             System.out.println("Used letters:" + usedLetters);
             Scanner input = new Scanner(System.in);
+            game.win(lettersToGuess, board);
             char guess = input.next().charAt(0);
             if (game.checkChar(usedLetters, guess)){
                 System.out.println("You've already guessed this letter!");
@@ -33,7 +34,7 @@ public class Game {
                 for (int j = 0; j < lettersToGuess.length; j++) {
                     if (lettersToGuess[j] == guess) {
                         board[j] = guess;
-                        game.win(lettersToGuess, board);                   
+                        //game.win(lettersToGuess, board);
                     }
                 }
             } else {

@@ -190,25 +190,9 @@ public class Terminal {
         Game play = new Game();
         if (Arrays.equals(letterToGuess, board)) {
             System.out.println("You Won");
-            System.out.println("1. Play again");
-            System.out.println("2. Exit");
+            player.reStart();
             Scanner input = new Scanner(System.in);
-            char choice = input.next().charAt(0);
-            switch(choice){
-                case '1': {
-                    play.game();
-                    break;
-                }
-                case '2': {
-                    System.exit(0);
-                    break;
-                }
-            }
-
-        }
-
-        
-        
+                    }
     }
 
 
@@ -218,6 +202,8 @@ public class Terminal {
         System.out.println("YOU'VE LOST!");
         player.reStart();
     }
+
+
     public void reStart() {
         Terminal player = new Terminal();
         System.out.println("Do you want to play again?");
@@ -235,6 +221,4 @@ public class Terminal {
             }
         }
     }
-
-
 }
