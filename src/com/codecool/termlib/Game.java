@@ -32,6 +32,7 @@ public class Game {
                 for (int j = 0; j < lettersToGuess.length; j++) {
                     if (lettersToGuess[j] == guess) {
                         board[j] = guess;
+                        game.win(lettersToGuess, board);                   
                     }
                 }
             } else {

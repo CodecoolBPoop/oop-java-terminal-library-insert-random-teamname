@@ -2,6 +2,7 @@ package com.codecool.termlib;
 import com.codecool.termlib.Game;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Terminal {
     /**
@@ -122,7 +123,7 @@ public class Terminal {
     }
 
     public String chooseRandomWord() {
-        String[] wordPool = {"project", "apple", "commission"};
+        String[] wordPool = {"apple"};
 
         int randomNumber = (int) (Math.random() * wordPool.length);
         return wordPool[randomNumber];
@@ -182,5 +183,30 @@ public class Terminal {
         }
     }
 
+    public void win(char [] letterToGuess, char [] board ){
+        Terminal player = new Terminal();
+        Game play = new Game();
+        if (Arrays.equals(letterToGuess, board)) {
+            System.out.println("You Won");
+            System.out.println("1. Play again");
+            System.out.println("2. Exit");
+            Scanner input = new Scanner(System.in);
+            char choice = input.next().charAt(0);
+            switch(choice){
+                case '1': {
+                    play.game();
+                    break;
+                }
+                case '2': {
+                    System.exit(0);
+                    break;
+                }
+            }
+
+        }
+
+        
+        
+    }
 
 }
