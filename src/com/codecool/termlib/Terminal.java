@@ -229,7 +229,7 @@ public class Terminal {
     public void win(char [] letterToGuess, char [] board ){
         Terminal win = new Terminal();
         if (Arrays.equals(letterToGuess, board)) {
-            System.out.println("You Won");
+            System.out.println("CONGRATULATIONS!!!");
             win.printCelebrate();
             win.restart();
         }
@@ -239,7 +239,7 @@ public class Terminal {
     public void youLost(){
         Terminal player = new Terminal();
         clearScreen();
-        System.out.println("YOU'VE LOST!");
+        System.out.println("May be next time...");
         System.out.println(player.chooseDraw(0));
         player.printGhost();
         player.restart();
