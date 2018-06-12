@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Game {
 
     public void game() {
+        System.out.println("\033[H\033[2J");
         Terminal game = new Terminal();
         String wordToGuess = game.chooseRandomWord();
         char[] lettersToGuess = wordToGuess.toCharArray();
@@ -17,12 +18,17 @@ public class Game {
         ArrayList usedLetters = new ArrayList();
         int lives = 5;
         while (lives > 0) {
+
             System.out.println("Lives: " + lives);
             System.out.print(board);
             System.out.println();
             System.out.println("Used letters:" + usedLetters);
             Scanner input = new Scanner(System.in);
             char guess = input.next().charAt(0);
+            System.out.println("\033[H\033[2J");
+            if (guess == '0') {
+                game.quit();
+            }
             if (game.checkChar(usedLetters, guess)){
                 System.out.println("You've already guessed this letter!");
                 continue;
