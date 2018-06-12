@@ -19,8 +19,12 @@ public class Game {
         while (lives > 0) {
             System.out.print("Lives: " + lives);
             System.out.println("\t To exit type 0");
+            System.out.println("");
+            System.out.println("");
             System.out.println(board);
-            System.out.println();
+            System.out.println("");
+            System.out.println("");
+            System.out.println(game.chooseDraw(lives));
             System.out.println("Used letters:" + usedLetters);
             game.win(lettersToGuess, board);
             Scanner input = new Scanner(System.in);

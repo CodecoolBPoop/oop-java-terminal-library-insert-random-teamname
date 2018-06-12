@@ -142,6 +142,10 @@ public class Terminal {
         Game play = new Game();
         Scanner input = new Scanner(System.in);
         clearScreen();
+        System.out.println("HANGMAN GAME");
+        System.out.println("");
+        System.out.println(player.chooseDraw(5));
+        System.out.println("");
         System.out.println("Please select a number");
         System.out.println("1. Player VS Comp");
         System.out.println("2. Player VS Player");
@@ -216,12 +220,10 @@ public class Terminal {
     }
 
     public void win(char [] letterToGuess, char [] board ){
-        Terminal player = new Terminal();
-        Game play = new Game();
+        Terminal win = new Terminal();
         if (Arrays.equals(letterToGuess, board)) {
             System.out.println("You Won");
-            player.restart();
-            Scanner input = new Scanner(System.in);
+            win.restart();
         }
     }
 
@@ -230,6 +232,7 @@ public class Terminal {
         Terminal player = new Terminal();
         clearScreen();
         System.out.println("YOU'VE LOST!");
+        System.out.println(player.chooseDraw(0));
         player.restart();
     }
 
@@ -258,5 +261,75 @@ public class Terminal {
         System.out.print("Please input a word: ");
         String word = input.nextLine().toLowerCase();
         return word;
+    }
+
+    public String chooseDraw(Integer index){
+        String[] draws = {
+            "-------\n"   
+        + " |   |\n"
+        + " |   0\n"
+        + " | /-+-\\\n"
+        + " |   | \n"
+        + " |   | \n"
+        + " |  | |\n"
+        + " |  | |\n"
+        + " |    \n"
+        + " |    \n"
+        + "--------", 
+            "-------\n"   
+        + " |   |\n"
+        + " |   0\n"
+        + " | /-+-\\\n"
+        + " |   | \n"
+        + " |   | \n"
+        + " |  |  \n"
+        + " |  |  \n"
+        + " |    \n"
+        + " |    \n"
+        + "--------", 
+           "-------\n"   
+        + " |   |\n"
+        + " |   0\n"
+        + " | /-+-\\\n"
+        + " |   | \n"
+        + " |   | \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + "--------", 
+           "-------\n"   
+        + " |   |\n"
+        + " |   0\n"
+        + " | /-+-\\\n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + "--------", 
+           "-------\n"   
+        + " |   |\n"
+        + " |   0\n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + "--------", 
+           "-------\n"
+        + " |   |\n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + " |    \n"
+        + "--------\n"};
+        return draws[index];
     }
 }
