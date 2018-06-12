@@ -2,6 +2,7 @@ package com.codecool.termlib;
 import com.codecool.termlib.Game;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.lang.Character;
 
 public class Terminal {
     /**
@@ -205,8 +206,8 @@ public class Terminal {
         System.out.print("R - Restart");
         System.out.println("      Press any key to quit");
         Scanner userInput = new Scanner(System.in);
-        char chosenOption = userInput.next().charAt(0);
-        if (chosenOption == 'r' || chosenOption == 'R'){
+        char chosenOption = Character.toLowerCase(userInput.next().charAt(0));
+        if (chosenOption == 'r'){
             ;
         }else{
             System.exit(0);
