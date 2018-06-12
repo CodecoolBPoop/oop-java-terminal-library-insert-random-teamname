@@ -211,7 +211,7 @@ public class Terminal {
         
     }
 
-}
+
     public void youLost(){
         clearScreen();
         System.out.println("YOU'VE LOST!");
