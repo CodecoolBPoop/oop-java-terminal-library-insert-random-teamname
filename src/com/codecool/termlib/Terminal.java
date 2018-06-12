@@ -146,7 +146,7 @@ public class Terminal {
         System.out.println("");
         System.out.println(player.chooseDraw(5));
         System.out.println("");
-        System.out.println("Please select a number");
+        System.out.println("Please select a number from the given options");
         System.out.println("1. Player VS Comp");
         System.out.println("2. Player VS Player");
         System.out.println("3. Rulebook");
@@ -170,6 +170,9 @@ public class Terminal {
             case '0': {
                 player.quit();
                 break;
+            }
+            default: {
+                player.startMenu();
             }
         }
     }
@@ -210,6 +213,9 @@ public class Terminal {
             case '0': {
                 player.quit();
                 break;
+            }
+            default: {
+                player.ruleBook();
             }
         }
     }
@@ -253,6 +259,9 @@ public class Terminal {
                 player.quit();
                 break;
             }
+            default: {
+                player.restart();
+            }
         }
     }
 
@@ -265,7 +274,7 @@ public class Terminal {
 
     public String chooseDraw(Integer index){
         String[] draws = {
-            "-------\n"   
+            "-------\n"
         + " |   |\n"
         + " |   0\n"
         + " | /-+-\\\n"
@@ -275,8 +284,8 @@ public class Terminal {
         + " |  | |\n"
         + " |    \n"
         + " |    \n"
-        + "--------", 
-            "-------\n"   
+        + "--------",
+            "-------\n"
         + " |   |\n"
         + " |   0\n"
         + " | /-+-\\\n"
@@ -286,8 +295,8 @@ public class Terminal {
         + " |  |  \n"
         + " |    \n"
         + " |    \n"
-        + "--------", 
-           "-------\n"   
+        + "--------",
+           "-------\n"
         + " |   |\n"
         + " |   0\n"
         + " | /-+-\\\n"
@@ -297,8 +306,8 @@ public class Terminal {
         + " |    \n"
         + " |    \n"
         + " |    \n"
-        + "--------", 
-           "-------\n"   
+        + "--------",
+           "-------\n"
         + " |   |\n"
         + " |   0\n"
         + " | /-+-\\\n"
@@ -308,8 +317,8 @@ public class Terminal {
         + " |    \n"
         + " |    \n"
         + " |    \n"
-        + "--------", 
-           "-------\n"   
+        + "--------",
+           "-------\n"
         + " |   |\n"
         + " |   0\n"
         + " |    \n"
@@ -319,7 +328,7 @@ public class Terminal {
         + " |    \n"
         + " |    \n"
         + " |    \n"
-        + "--------", 
+        + "--------",
            "-------\n"
         + " |   |\n"
         + " |    \n"
