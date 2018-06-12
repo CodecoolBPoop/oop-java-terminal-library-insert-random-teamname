@@ -2,6 +2,7 @@ package com.codecool.termlib;
 import com.codecool.termlib.Game;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.lang.Character;
 import java.util.Arrays;
 
 public class Terminal {
@@ -125,7 +126,7 @@ public class Terminal {
     }
 
     public String chooseRandomWord() {
-        String[] wordPool = {"apple"};
+        String[] wordPool = {"project", "apple", "commission"};
 
         int randomNumber = (int) (Math.random() * wordPool.length);
         return wordPool[randomNumber];
@@ -144,6 +145,7 @@ public class Terminal {
         System.out.println("Please select a number");
         System.out.println("1. Start game");
         System.out.println("2. Rulebook");
+        System.out.println("0. Quit");
         char choice = input.next().charAt(0);
         switch(choice){
             case '1': {
@@ -152,6 +154,10 @@ public class Terminal {
             }
             case '2': {
                 player.ruleBook();
+                break;
+            }
+            case '0': {
+                player.quit();
                 break;
             }
         }
@@ -168,8 +174,9 @@ public class Terminal {
         System.out.println("4. In order to win fill in the blanks before losing all your lives");
         System.out.println();
         System.out.println("Please select a number");
-        System.out.print("1. Start game ");
-        System.out.print("  2. Go back");
+        System.out.print("1. Start game  ");
+        System.out.print("  2. Go back  ");
+        System.out.print("  0. Quit");
         System.out.println();
         Scanner input = new Scanner(System.in);
         char choice = input.next().charAt(0);
@@ -182,7 +189,16 @@ public class Terminal {
                 player.startMenu();
                 break;
             }
+            case '0': {
+                player.quit();
+                break;
+            }
         }
+    }
+
+    public void quit(){
+        System.out.println("See You Later Aligator!");
+        System.exit(0);
     }
 
     public void win(char [] letterToGuess, char [] board ){

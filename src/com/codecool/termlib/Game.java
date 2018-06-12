@@ -4,6 +4,7 @@ import com.codecool.termlib.Terminal;
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.lang.Character;
 
 public class Game {
 
@@ -17,12 +18,18 @@ public class Game {
         ArrayList usedLetters = new ArrayList();
         int lives = 5;
         while (lives > 0) {
-            game.clearScreen();
-            System.out.println("Lives: " + lives);
-            System.out.print(board);
+
+            System.out.print("Lives: " + lives);
+            System.out.println("\t To exit type 0");
+            System.out.println(board);
             System.out.println();
             System.out.println("Used letters:" + usedLetters);
             Scanner input = new Scanner(System.in);
+            char guess = Character.toLowerCase(input.next().charAt(0));
+            game.clearScreen();
+            if (guess == '0') {
+                game.quit();
+            }
             game.win(lettersToGuess, board);
             char guess = input.next().charAt(0);
             if (game.checkChar(usedLetters, guess)){
@@ -34,7 +41,6 @@ public class Game {
                 for (int j = 0; j < lettersToGuess.length; j++) {
                     if (lettersToGuess[j] == guess) {
                         board[j] = guess;
-                        //game.win(lettersToGuess, board);
                     }
                 }
             } else {
