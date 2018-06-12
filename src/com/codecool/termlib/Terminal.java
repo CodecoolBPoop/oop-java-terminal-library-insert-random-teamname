@@ -185,17 +185,10 @@ public class Terminal {
     }
 
     public void youLost(){
+        Terminal player = new Terminal();
         clearScreen();
         System.out.println("YOU'VE LOST!");
-        System.out.print("R - Restart");
-        System.out.println("      Press any key to quit");
-        Scanner userInput = new Scanner(System.in);
-        char chosenOption = userInput.next().charAt(0);
-        if (chosenOption == 'r' || chosenOption == 'R'){
-            ;
-        }else{
-            System.exit(0);
-        }
+        player.reStart();
     }
     public void reStart() {
         Terminal player = new Terminal();
