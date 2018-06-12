@@ -1,4 +1,7 @@
 package com.codecool.termlib;
+import com.codecool.termlib.Game;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Terminal {
     /**
@@ -124,4 +127,60 @@ public class Terminal {
         int randomNumber = (int) (Math.random() * wordPool.length);
         return wordPool[randomNumber];
     }
+
+    public boolean checkChar(ArrayList usedLetters, char guess) {
+        boolean check = usedLetters.contains(guess);
+        return check;
+    }
+
+    public void startMenu(){
+        Terminal player = new Terminal();
+        Game play = new Game();
+        Scanner input = new Scanner(System.in);
+        System.out.println("\033[H\033[2J");
+        System.out.println("Please select a number");
+        System.out.println("1. Start game");
+        System.out.println("2. Rulebook");
+        char choice = input.next().charAt(0);
+        switch(choice){
+            case '1': {
+                play.game();
+                break;
+            }
+            case '2': {
+                player.ruleBook();
+                break;
+            }
+        }
+    }
+
+    public void ruleBook(){
+        Terminal player = new Terminal();
+        Game play = new Game();
+        System.out.println("\033[H\033[2J");
+        System.out.println("The Rules:");
+        System.out.println("1. You have 5 lives");
+        System.out.println("2. Guess a letter and if it's wrong you lose a life");
+        System.out.println("3. You can only guess one character at a time");
+        System.out.println("4. In order to win fill in the blanks before losing all your lives");
+        System.out.println();
+        System.out.println("Please select a number");
+        System.out.print("1. Start game ");
+        System.out.print("  2. Go back");
+        System.out.println();
+        Scanner input = new Scanner(System.in);
+        char choice = input.next().charAt(0);
+        switch(choice){
+            case '1': {
+                play.game();
+                break;
+            }
+            case '2': {
+                player.startMenu();
+                break;
+            }
+        }
+    }
+
+
 }
