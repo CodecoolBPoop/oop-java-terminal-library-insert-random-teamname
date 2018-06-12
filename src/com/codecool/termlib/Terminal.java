@@ -118,7 +118,10 @@ public class Terminal {
     private void command(String commandString) {
     }
 
-    public void sayHello() {
-        System.out.println("Hello");
+    public String chooseRandomWord() {
+        String[] wordPool = {"project", "apple", "commission"};
+
+        int randomNumber = (int) (Math.random() * wordPool.length);
+        return wordPool[randomNumber];
     }
 }
