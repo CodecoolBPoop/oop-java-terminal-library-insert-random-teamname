@@ -8,17 +8,15 @@ import java.lang.Character;
 
 public class Game {
 
-    public void game() {
+    public void game(String secretWord) {
         Terminal game = new Terminal();
-        String wordToGuess = game.chooseRandomWord();
-        char[] lettersToGuess = wordToGuess.toCharArray();
-        char unknown = '_';
+        char[] lettersToGuess = secretWord.toCharArray();
+        char unknown = '*';
         char[] board = new char[lettersToGuess.length];
         Arrays.fill(board, unknown);
         ArrayList usedLetters = new ArrayList();
         int lives = 5;
         while (lives > 0) {
-
             System.out.print("Lives: " + lives);
             System.out.println("\t To exit type 0");
             System.out.println(board);
@@ -36,7 +34,7 @@ public class Game {
                 continue;
             }
             usedLetters.add(guess);
-            if (wordToGuess.indexOf(guess) >= 0) {
+            if (secretWord.indexOf(guess) >= 0) {
                 for (int j = 0; j < lettersToGuess.length; j++) {
                     if (lettersToGuess[j] == guess) {
                         board[j] = guess;
