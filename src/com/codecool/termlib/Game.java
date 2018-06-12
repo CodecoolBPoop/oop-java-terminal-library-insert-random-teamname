@@ -37,7 +37,6 @@ public class Game {
             } else {
                 lives -= 1;
             }
-
         }
     }
 
