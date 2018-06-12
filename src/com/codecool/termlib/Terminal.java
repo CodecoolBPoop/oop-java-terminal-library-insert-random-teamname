@@ -41,6 +41,8 @@ public class Terminal {
      * Might reset cursor position.
      */
     public void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     /**
@@ -137,7 +139,7 @@ public class Terminal {
         Terminal player = new Terminal();
         Game play = new Game();
         Scanner input = new Scanner(System.in);
-        System.out.println("\033[H\033[2J");
+        clearScreen();
         System.out.println("Please select a number");
         System.out.println("1. Start game");
         System.out.println("2. Rulebook");
@@ -182,6 +184,19 @@ public class Terminal {
         }
     }
 
+    public void youLost(){
+        clearScreen();
+        System.out.println("YOU'VE LOST!");
+        System.out.print("R - Restart");
+        System.out.println("      Press any key to quit");
+        Scanner userInput = new Scanner(System.in);
+        char chosenOption = userInput.next().charAt(0);
+        if (chosenOption == 'r' || chosenOption == 'R'){
+            ;
+        }else{
+            System.exit(0);
+        }
+    }
     public void reStart() {
         Terminal player = new Terminal();
         System.out.println("Do you want to play again?");
