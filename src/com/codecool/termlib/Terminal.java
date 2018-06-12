@@ -142,11 +142,9 @@ public class Terminal {
         Game play = new Game();
         Scanner input = new Scanner(System.in);
         clearScreen();
-        System.out.println("HANGMAN GAME");
-        System.out.println("");
-        System.out.println(player.chooseDraw(5));
-        System.out.println("");
-        System.out.println("Please select a number");
+        player.printHangman();
+        player.drawHangman();
+        System.out.println("Please select a number from the given options");
         System.out.println("1. Player VS Comp");
         System.out.println("2. Player VS Player");
         System.out.println("3. Rulebook");
@@ -170,6 +168,9 @@ public class Terminal {
             case '0': {
                 player.quit();
                 break;
+            }
+            default: {
+                player.startMenu();
             }
         }
     }
@@ -211,11 +212,17 @@ public class Terminal {
                 player.quit();
                 break;
             }
+            default: {
+                player.ruleBook();
+            }
         }
     }
 
     public void quit(){
+        clearScreen();
+        Terminal player = new Terminal();
         System.out.println("See You Later Aligator!");
+        player.printAligator();
         System.exit(0);
     }
 
@@ -223,6 +230,7 @@ public class Terminal {
         Terminal win = new Terminal();
         if (Arrays.equals(letterToGuess, board)) {
             System.out.println("You Won");
+            win.printCelebrate();
             win.restart();
         }
     }
@@ -233,6 +241,7 @@ public class Terminal {
         clearScreen();
         System.out.println("YOU'VE LOST!");
         System.out.println(player.chooseDraw(0));
+        player.printGhost();
         player.restart();
     }
 
@@ -253,6 +262,10 @@ public class Terminal {
                 player.quit();
                 break;
             }
+            default: {
+                clearScreen();
+                player.restart();
+            }
         }
     }
 
@@ -265,9 +278,9 @@ public class Terminal {
 
     public String chooseDraw(Integer index){
         String[] draws = {
-            "-------\n"   
+            "-------\n"
         + " |   |\n"
-        + " |   0\n"
+        + " | (O.o)\n"
         + " | /-+-\\\n"
         + " |   | \n"
         + " |   | \n"
@@ -275,10 +288,10 @@ public class Terminal {
         + " |  | |\n"
         + " |    \n"
         + " |    \n"
-        + "--------", 
-            "-------\n"   
+        + "--------",
+            "-------\n"
         + " |   |\n"
-        + " |   0\n"
+        + " | (O.o)\n"
         + " | /-+-\\\n"
         + " |   | \n"
         + " |   | \n"
@@ -286,10 +299,10 @@ public class Terminal {
         + " |  |  \n"
         + " |    \n"
         + " |    \n"
-        + "--------", 
-           "-------\n"   
+        + "--------",
+           "-------\n"
         + " |   |\n"
-        + " |   0\n"
+        + " | (O.o)\n"
         + " | /-+-\\\n"
         + " |   | \n"
         + " |   | \n"
@@ -297,10 +310,10 @@ public class Terminal {
         + " |    \n"
         + " |    \n"
         + " |    \n"
-        + "--------", 
-           "-------\n"   
+        + "--------",
+           "-------\n"
         + " |   |\n"
-        + " |   0\n"
+        + " | (O.o)\n"
         + " | /-+-\\\n"
         + " |    \n"
         + " |    \n"
@@ -308,10 +321,10 @@ public class Terminal {
         + " |    \n"
         + " |    \n"
         + " |    \n"
-        + "--------", 
-           "-------\n"   
+        + "--------",
+           "-------\n"
         + " |   |\n"
-        + " |   0\n"
+        + " | (O.o)\n"
         + " |    \n"
         + " |    \n"
         + " |    \n"
@@ -319,7 +332,7 @@ public class Terminal {
         + " |    \n"
         + " |    \n"
         + " |    \n"
-        + "--------", 
+        + "--------",
            "-------\n"
         + " |   |\n"
         + " |    \n"
@@ -331,5 +344,88 @@ public class Terminal {
         + " |    \n"
         + "--------\n"};
         return draws[index];
+    }
+    public void printHangman(){
+        System.out.println("██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
+        System.out.println("██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
+        System.out.println("███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
+        System.out.println("██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║");
+        System.out.println("██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║");
+        System.out.println("╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝");
+
+    }
+
+
+    public void printAligator(){
+        System.out.println("            .-._   _ _ _ _ _ _ _ _       ");
+        System.out.println(" .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
+        System.out.println("'.___ '    .   .--_'-' '-' '-' _'-' '._  ");
+        System.out.println(" V: V 'vv-'   '_   '.       .'  _..' '.'.");
+        System.out.println("   '=.____.=_.--'   :_.__.__:_   '.   : :");
+        System.out.println("           (((____.-'        '-.  /   : :");
+        System.out.println("                             (((-'\\ .' /");
+        System.out.println("                           _____..'  .'  ");
+        System.out.println("                          '-._____.-'    ");
+    }
+
+    public void printCelebrate(){
+        System.out.println("                                 .''.");
+        System.out.println("       .''.             *''*    :_\\/_:     . ");
+        System.out.println("      :_\\/_:   .    .:.*_\\/_*   : /\\ :  .'.:.'.");
+        System.out.println("  .''.: /\\ : _\\(/_  ':'* /\\ *  : '..'.  -=:o:=-");
+        System.out.println(" :_\\/_:'.:::. /)\\*''*  .|.* '.\\'/.'_\\(/_'.':'.'");
+        System.out.println(" : /\\ : :::::  '*_\\/_* | |  -= o =- /)\\    '  *");
+        System.out.println("  '..'  ':::'   * /\\ * |'|  .'/.\\'.  '._____");
+        System.out.println("      *        __*..* |  |     :      |.   |' .---''|");
+        System.out.println("       _*   .-'   '-. |  |     .--'|  ||   | _|    |");
+        System.out.println("    .-'|  _.|  |    ||   '-__  |   |  |    ||      |");
+        System.out.println("    |' | |.    |    ||       | |   |  |    ||      |");
+        System.out.println(" ___|  '-'     '    ''       '-'   '-.'    '`      |____");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    }
+
+    public void printGhost(){
+        System.out.println("    .-----.");
+        System.out.println("   .' -   - '.");
+        System.out.println("  /  .-. .-.  \\");
+        System.out.println("  |  | | | |  |");
+        System.out.println("   \\ \\o/ \\o/ /");
+        System.out.println("  _/    ^    \\_");
+        System.out.println(" | \\  '---'  / |");
+        System.out.println(" / /`--. .--`\\ \\");
+        System.out.println("/ /'---` `---'\\ \\");
+        System.out.println("'.__.       .__.'");
+        System.out.println("    `|     |`");
+        System.out.println("     |     \\");
+        System.out.println("     \\      '--.");
+        System.out.println("      '.        `\\");
+        System.out.println("        `'---.   |");
+        System.out.println("           ,__) /");
+        System.out.println("            `..'");
+    }
+
+    public void drawHangman(){
+        System.out.println(" ___________.._______");
+        System.out.println("| .__________))______|");
+        System.out.println("| | / /      ||");
+        System.out.println("| |/ /       ||");
+        System.out.println("| | /        ||.-''.");
+        System.out.println("| |          ||  `/,|");
+        System.out.println("| |          (\\\\`_.'");
+        System.out.println("| |         .-`--'.");
+        System.out.println("| |        /Y . . Y\\");
+        System.out.println("| |       // |   | \\\\");
+        System.out.println("| |      //  | . |  \\\\");
+        System.out.println("| |     ')   |   |   (`");
+        System.out.println("| |          ||'||");
+        System.out.println("| |          || ||");
+        System.out.println("| |          || ||");
+        System.out.println("| |          || ||");
+        System.out.println("| |         / | | \\");
+        System.out.println("----------|_`-' `-' |---|");
+        System.out.println("|-|-------\\ \\       '-|-|");
+        System.out.println("| |        \\ \\        | |");
+        System.out.println(": :         \\ \\       : :");
+        System.out.println(". .          `'       . .");
     }
 }

@@ -10,6 +10,7 @@ public class Game {
 
     public void game(String secretWord) {
         Terminal game = new Terminal();
+        game.clearScreen();
         char[] lettersToGuess = secretWord.toCharArray();
         char unknown = '*';
         char[] board = new char[lettersToGuess.length];
@@ -18,7 +19,7 @@ public class Game {
         int lives = 5;
         while (lives > 0) {
             System.out.print("Lives: " + lives);
-            System.out.println("\t To exit type 0");
+            System.out.println("\t To exit type: 0");
             System.out.println("");
             System.out.println("");
             System.out.println(board);
