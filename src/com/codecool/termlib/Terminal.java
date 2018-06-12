@@ -142,7 +142,7 @@ public class Terminal {
         Game play = new Game();
         Scanner input = new Scanner(System.in);
         clearScreen();
-        System.out.println("Please select a number");
+        System.out.println("Please select a number from the given options");
         System.out.println("1. Player VS Comp");
         System.out.println("2. Player VS Player");
         System.out.println("3. Rulebook");
@@ -166,6 +166,9 @@ public class Terminal {
             case '0': {
                 player.quit();
                 break;
+            }
+            default: {
+                player.startMenu();
             }
         }
     }
@@ -206,6 +209,9 @@ public class Terminal {
             case '0': {
                 player.quit();
                 break;
+            }
+            default: {
+                player.ruleBook();
             }
         }
     }
@@ -249,6 +255,9 @@ public class Terminal {
             case '2': {
                 player.quit();
                 break;
+            }
+            default: {
+                player.restart();
             }
         }
     }
