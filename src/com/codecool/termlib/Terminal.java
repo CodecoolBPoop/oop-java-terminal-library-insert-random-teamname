@@ -3,6 +3,7 @@ import com.codecool.termlib.Game;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.lang.Character;
+import java.util.Arrays;
 
 public class Terminal {
     /**
@@ -200,17 +201,40 @@ public class Terminal {
         System.exit(0);
     }
 
+    public void win(char [] letterToGuess, char [] board ){
+        Terminal player = new Terminal();
+        Game play = new Game();
+        if (Arrays.equals(letterToGuess, board)) {
+            System.out.println("You Won");
+            player.reStart();
+            Scanner input = new Scanner(System.in);
+                    }
+    }
+
+
     public void youLost(){
+        Terminal player = new Terminal();
         clearScreen();
         System.out.println("YOU'VE LOST!");
-        System.out.print("R - Restart");
-        System.out.println("      Press any key to quit");
-        Scanner userInput = new Scanner(System.in);
-        char chosenOption = Character.toLowerCase(userInput.next().charAt(0));
-        if (chosenOption == 'r'){
-            ;
-        }else{
-            System.exit(0);
+        player.reStart();
+    }
+
+
+    public void reStart() {
+        Terminal player = new Terminal();
+        System.out.println("Do you want to play again?");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+        Scanner input = new Scanner(System.in);
+        char restartChoice = input.next().charAt(0);
+        switch(restartChoice){
+            case '1': {
+                player.startMenu();
+                break;
+            }
+            case '2': {
+                System.out.println("Goodbye!");
+            }
         }
     }
 }

@@ -30,6 +30,8 @@ public class Game {
             if (guess == '0') {
                 game.quit();
             }
+            game.win(lettersToGuess, board);
+            char guess = input.next().charAt(0);
             if (game.checkChar(usedLetters, guess)){
                 System.out.println("You've already guessed this letter!");
                 continue;
