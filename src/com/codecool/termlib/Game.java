@@ -17,6 +17,7 @@ public class Game {
         ArrayList usedLetters = new ArrayList();
         int lives = 5;
         while (lives > 0) {
+            game.clearScreen();
             System.out.println("Lives: " + lives);
             System.out.print(board);
             System.out.println();
@@ -38,8 +39,8 @@ public class Game {
             } else {
                 lives -= 1;
             }
-
         }
+        game.youLost();
     }
 
 
