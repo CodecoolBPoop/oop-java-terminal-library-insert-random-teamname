@@ -43,7 +43,7 @@ public class Terminal {
      * Might reset cursor position.
      */
     public void clearScreen() {
-        System.out.print("\033[H\033[2J");
+        System.out.print(CONTROL_CODE+MOVE+CONTROL_CODE+CLEAR);
         System.out.flush();
     }
 
@@ -124,7 +124,7 @@ public class Terminal {
      */
     private void command(String commandString) {
     }
-
+    public static final String ANSI_BLACK = "\u001B[30m";
     public String chooseRandomWord() {
         String[] wordPool = {"project", "apple", "commission"};
 
@@ -346,7 +346,7 @@ public class Terminal {
         return draws[index];
     }
     public void printHangman(){
-        System.out.println("██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
+        System.out.println(ANSI_BLACK + "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
         System.out.println("██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
         System.out.println("███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
         System.out.println("██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║");
