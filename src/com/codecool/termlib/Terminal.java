@@ -124,7 +124,6 @@ public class Terminal {
      */
     private void command(String commandString) {
     }
-    public static final String ANSI_BLACK = "\u001B[30m";
     public String chooseRandomWord(int wordGroup) {
         String[][] wordPool = {
                 {"Apple", "Apricot", "Avocado", "Banana", "Blackberry", "Blackcurrant", "Blueberry", "Cherry", "Cloudberry", "Coconut",
@@ -193,6 +192,7 @@ public class Terminal {
 
 
     public void wordCategory() {
+        clearScreen();
         Terminal player = new Terminal();
         Game play = new Game();
         Scanner input = new Scanner(System.in);
