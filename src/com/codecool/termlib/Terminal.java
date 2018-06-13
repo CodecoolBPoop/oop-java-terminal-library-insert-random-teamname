@@ -159,7 +159,7 @@ public class Terminal {
         clearScreen();
         player.printHangman();
         player.drawHangman();
-        System.out.println("Please select a number from the given options");
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "Please select a number from the given options");
         System.out.println("1. Player VS Comp");
         System.out.println("2. Player VS Player");
         System.out.println("3. Rulebook");
@@ -224,8 +224,8 @@ public class Terminal {
     public void ruleBook(){
         Terminal player = new Terminal();
         Game play = new Game();
-        System.out.println("\033[H\033[2J");
-        System.out.println("The Rules:");
+        player.clearScreen();
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "The Rules:");
         System.out.println("1. You have 5 lives");
         System.out.println("2. Guess a letter and if it's wrong you lose a life");
         System.out.println("3. You can only guess one character at a time");
@@ -267,15 +267,16 @@ public class Terminal {
     public void quit(){
         clearScreen();
         Terminal player = new Terminal();
-        System.out.println("See You Later Aligator!");
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "See You Later Aligator!");
         player.printAligator();
+        System.out.println(ANSI_RESET);
         System.exit(0);
     }
 
     public void win(char [] letterToGuess, char [] board ){
         Terminal win = new Terminal();
         if (Arrays.equals(letterToGuess, board)) {
-            System.out.println("You Won");
+            System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "CONGRATULATIONS!!!");
             win.printCelebrate();
             win.restart();
         }
@@ -285,8 +286,8 @@ public class Terminal {
     public void youLost(){
         Terminal player = new Terminal();
         clearScreen();
-        System.out.println("YOU'VE LOST!");
-        System.out.println(player.chooseDraw(0));
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "May be next time...");
+        System.out.println(ANSI_RED + player.losingLivesHangman(0) + ANSI_RESET);
         player.printGhost();
         player.restart();
     }
@@ -294,7 +295,7 @@ public class Terminal {
 
     public void restart() {
         Terminal player = new Terminal();
-        System.out.println("Do you want to play again?");
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "Do you want to play again?");
         System.out.println("1. Yes");
         System.out.println("2. No");
         Scanner input = new Scanner(System.in);
@@ -316,14 +317,18 @@ public class Terminal {
     }
 
     public String userWord(){
+        Terminal player = new Terminal();
         Scanner input = new Scanner(System.in);
         System.out.print("Please input a word: ");
         String word = input.nextLine().toLowerCase();
+        if (!word.matches("[a-zA-Z]+")){
+            System.out.println("Letters only!");
+            return player.userWord();
+            }
         return word;
     }
 
-
-    public String chooseDraw(Integer index){
+    public String losingLivesHangman(Integer index){
         String[] draws = {
             "-------\n"
         + " |   |\n"
@@ -393,18 +398,18 @@ public class Terminal {
         return draws[index];
     }
     public void printHangman(){
-        System.out.println(ANSI_BLACK + "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
+        System.out.println(BACKGROUND_WHITE + ANSI_BLACK + "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
         System.out.println("██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
         System.out.println("███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
         System.out.println("██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║");
         System.out.println("██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║");
-        System.out.println("╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝");
+        System.out.println("╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝" + ANSI_RESET);
 
     }
 
 
     public void printAligator(){
-        System.out.println("            .-._   _ _ _ _ _ _ _ _       ");
+        System.out.println(BACKGROUND_WHITE + ANSI_GREEN + "            .-._   _ _ _ _ _ _ _ _       ");
         System.out.println(" .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
         System.out.println("'.___ '    .   .--_'-' '-' '-' _'-' '._  ");
         System.out.println(" V: V 'vv-'   '_   '.       .'  _..' '.'.");
@@ -412,11 +417,11 @@ public class Terminal {
         System.out.println("           (((____.-'        '-.  /   : :");
         System.out.println("                             (((-'\\ .' /");
         System.out.println("                           _____..'  .'  ");
-        System.out.println("                          '-._____.-'    ");
+        System.out.println("                          '-._____.-'    " + ANSI_RESET);
     }
 
     public void printCelebrate(){
-        System.out.println("                                 .''.");
+        System.out.println(BACKGROUND_WHITE + ANSI_RED + "                                 .''.");
         System.out.println("       .''.             *''*    :_\\/_:     . ");
         System.out.println("      :_\\/_:   .    .:.*_\\/_*   : /\\ :  .'.:.'.");
         System.out.println("  .''.: /\\ : _\\(/_  ':'* /\\ *  : '..'.  -=:o:=-");
@@ -428,11 +433,11 @@ public class Terminal {
         System.out.println("    .-'|  _.|  |    ||   '-__  |   |  |    ||      |");
         System.out.println("    |' | |.    |    ||       | |   |  |    ||      |");
         System.out.println(" ___|  '-'     '    ''       '-'   '-.'    '`      |____");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + ANSI_RESET);
     }
 
     public void printGhost(){
-        System.out.println("    .-----.");
+        System.out.println(BACKGROUND_WHITE + ANSI_BLUE + "     .-----.");
         System.out.println("   .' -   - '.");
         System.out.println("  /  .-. .-.  \\");
         System.out.println("  |  | | | |  |");
@@ -448,11 +453,11 @@ public class Terminal {
         System.out.println("      '.        `\\");
         System.out.println("        `'---.   |");
         System.out.println("           ,__) /");
-        System.out.println("            `..'");
+        System.out.println("            `..'" + ANSI_RESET);
     }
 
     public void drawHangman(){
-        System.out.println(" ___________.._______");
+        System.out.println(BACKGROUND_WHITE + BLINK + ANSI_BLACK + " ___________.._______");
         System.out.println("| .__________))______|");
         System.out.println("| | / /      ||");
         System.out.println("| |/ /       ||");
@@ -473,6 +478,18 @@ public class Terminal {
         System.out.println("|-|-------\\ \\       '-|-|");
         System.out.println("| |        \\ \\        | |");
         System.out.println(": :         \\ \\       : :");
-        System.out.println(". .          `'       . .");
+        System.out.println(". .          `'       . ." + ANSI_RESET);
     }
+
+    public static final String ANSI_GREEN = "\033[1;32m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\033[1;90m";
+    public static final String BLACK_BOLD = "\033[1;30m";
+    public static final String ANSI_BLUE = "\033[1;94m";
+    public static final String ANSI_RED = "\033[1;91m";
+    public static final String BLINK = "\u001B[5m";
+    public static final String HIGH_INTENSITY = "\u001B[1m";
+    public static final String BACKGROUND_WHITE = "\033[107m";
+    public static final String INVISIBLE_TEXT = "\u001B[8m";
+    public static final String CYAN_BOLD_BRIGHT = "\033[1;96m";
 }
