@@ -125,11 +125,26 @@ public class Terminal {
     private void command(String commandString) {
     }
     public static final String ANSI_BLACK = "\u001B[30m";
-    public String chooseRandomWord() {
-        String[] wordPool = {"project", "apple", "commission"};
+    public String chooseRandomWord(int wordGroup) {
+        String[][] wordPool = {
+                {"Apple", "Apricot", "Avocado", "Banana", "Blackberry", "Blackcurrant", "Blueberry", "Cherry", "Cloudberry", "Coconut",
+                        "Cranberry", "Dragonfruit", "Elderberry", "Goji berry", "Grape", "Raisin", "Grapefruit", "Guava", "Kiwifruit",
+                        "Lemon", "Lime", "Mango", "Melon", "Orange", "Papaya", "Passionfruit", "Peach,Pear", "Plum", "Pineapple", "Pomelo",
+                        "Raspberry", "Tamarind"},
+                {"Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Czech Republic",
+                        "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Latvia",
+                        "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco", "Netherlands", "Norway", "Poland",
+                        "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Montenegro", "Slovakia", "Slovenia", "Spain", "Sweden",
+                        "Switzerland", "Ukraine", "United Kingdom"},
+                {"Tirana", "Andorra la Vella", "Yerevan", "Vienna", "Baku", "Minsk", "Brussels", "Sarajevo", "Sofia", "Zagreb", "Nicosia",
+                        "Prague", "Copenhagen", "Tallinn", "Helsinki", "Paris", "Tbilisi", "Berlin", "Athens", "Budapest", "Reykjavík", "Dublin",
+                        "Rome", "Pristina", "Riga", "Vaduz", "Vilnius", "Luxembourg", "Skopje", "Valletta", "Chişinău", "Monaco", "Podgorica",
+                        "Amsterdam", "Oslo", "Warsaw", "Lisbon", "Bucharest", "Moscow", "San Marino", "Belgrade", "Bratislava", "Ljubljana",
+                        "Madrid", "Stockholm", "Bern", "Ankara", "Kiev", "London", "Vatican City"},
+        };
 
-        int randomNumber = (int) (Math.random() * wordPool.length);
-        return wordPool[randomNumber];
+        int randomNumber = (int) (Math.random() * wordPool[wordGroup].length);
+        return wordPool[wordGroup][randomNumber].toLowerCase();
     }
 
     public boolean checkChar(ArrayList usedLetters, char guess) {
@@ -150,10 +165,11 @@ public class Terminal {
         System.out.println("3. Rulebook");
         System.out.println("0. Quit");
         char choice = input.next().charAt(0);
+
         switch(choice){
             case '1': {
-                String randomWord = player.chooseRandomWord();
-                play.game(randomWord);
+                System.out.println();
+                player.wordCategory();
                 break;
             }
             case '2': {
@@ -171,6 +187,36 @@ public class Terminal {
             }
             default: {
                 player.startMenu();
+            }
+        }
+    }
+
+
+    public void wordCategory() {
+        Terminal player = new Terminal();
+        Game play = new Game();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please select a number from the given options");
+        System.out.println("1. Fruits");
+        System.out.println("2. Countries in Europe");
+        System.out.println("3. Capital in Europe");
+        char wordGroup = input.next().charAt(0);
+
+        switch(wordGroup){
+            case '1': {
+                String randomWord = player.chooseRandomWord(0);
+                play.game(randomWord);
+                break;
+            }
+            case '2': {
+                String randomWord = player.chooseRandomWord(1);
+                play.game(randomWord);
+                break;
+            }
+            case '3': {
+                String randomWord = player.chooseRandomWord(2);
+                play.game(randomWord);
+                break;
             }
         }
     }
@@ -195,8 +241,8 @@ public class Terminal {
         char choice = input.next().charAt(0);
         switch(choice){
             case '1': {
-                String randomWord = player.chooseRandomWord();
-                play.game(randomWord);
+                System.out.println();
+                player.wordCategory();
                 break;
             }
             case '2': {
@@ -275,6 +321,7 @@ public class Terminal {
         String word = input.nextLine().toLowerCase();
         return word;
     }
+
 
     public String chooseDraw(Integer index){
         String[] draws = {
