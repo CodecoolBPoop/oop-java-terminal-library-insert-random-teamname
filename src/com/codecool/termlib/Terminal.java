@@ -277,6 +277,7 @@ public class Terminal {
         System.out.println("2. Guess a letter and if it's wrong you lose a life");
         System.out.println("3. You can only guess one character at a time");
         System.out.println("4. In order to win fill in the blanks before losing all your lives");
+        System.out.println("5. You can only give letters");
         System.out.println();
         System.out.println("Please select a number");
         System.out.print("1. Player VS Computer  ");
