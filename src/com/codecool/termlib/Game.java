@@ -1,5 +1,4 @@
 package com.codecool.termlib;
-
 import com.codecool.termlib.Terminal;
 import java.util.Scanner;
 import java.util.Arrays;
@@ -30,10 +29,15 @@ public class Game {
             game.win(lettersToGuess, board);
             Scanner input = new Scanner(System.in);
             char guess = Character.toLowerCase(input.next().charAt(0));
-            game.clearScreen();
             if (guess == '0') {
                 game.quit();
             }
+            if (!Character.isLetter(guess)) {
+                game.clearScreen();
+                System.out.println("Letters only!");
+                continue;
+                }
+            game.clearScreen();
             if (game.checkChar(usedLetters, guess)){
                 System.out.println("You've already guessed this letter!");
                 continue;
