@@ -270,9 +270,14 @@ public class Terminal {
     }
 
     public String userWord(){
+        Terminal player = new Terminal();
         Scanner input = new Scanner(System.in);
         System.out.print("Please input a word: ");
         String word = input.nextLine().toLowerCase();
+        if (!word.matches("[a-zA-Z]+")){
+            System.out.println("Letters only!");
+            return player.userWord();
+            }
         return word;
     }
 
