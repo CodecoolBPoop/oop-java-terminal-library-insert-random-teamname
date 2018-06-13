@@ -124,7 +124,7 @@ public class Terminal {
      */
     private void command(String commandString) {
     }
-    public static final String ANSI_BLACK = "\u001B[30m";
+
     public String chooseRandomWord() {
         String[] wordPool = {"project", "apple", "commission"};
 
@@ -357,19 +357,19 @@ public class Terminal {
 
 
     public void printAligator(){
-        System.out.println(ANSI_GREEN + "            .-._   _ _ _ _ _ _ _ _       " + ANSI_RESET);
-        System.out.println(ANSI_GREEN + " .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    " + ANSI_RESET);
-        System.out.println(ANSI_GREEN + "'.___ '    .   .--_'-' '-' '-' _'-' '._  " + ANSI_RESET);
-        System.out.println(ANSI_GREEN + " V: V 'vv-'   '_   '.       .'  _..' '.'." + ANSI_RESET);
-        System.out.println(ANSI_GREEN + "   '=.____.=_.--'   :_.__.__:_   '.   : :" + ANSI_RESET);
-        System.out.println(ANSI_GREEN + "           (((____.-'        '-.  /   : :" + ANSI_RESET);
-        System.out.println(ANSI_GREEN + "                             (((-'\\ .' /" + ANSI_RESET);
-        System.out.println(ANSI_GREEN + "                           _____..'  .'  " + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "            .-._   _ _ _ _ _ _ _ _       ");
+        System.out.println(ANSI_GREEN + " .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
+        System.out.println(ANSI_GREEN + "'.___ '    .   .--_'-' '-' '-' _'-' '._  ");
+        System.out.println(ANSI_GREEN + " V: V 'vv-'   '_   '.       .'  _..' '.'.");
+        System.out.println(ANSI_GREEN + "   '=.____.=_.--'   :_.__.__:_   '.   : :");
+        System.out.println(ANSI_GREEN + "           (((____.-'        '-.  /   : :");
+        System.out.println(ANSI_GREEN + "                             (((-'\\ .' /");
+        System.out.println(ANSI_GREEN + "                           _____..'  .'  ");
         System.out.println(ANSI_GREEN + "                          '-._____.-'    " + ANSI_RESET);
     }
 
     public void printCelebrate(){
-        System.out.println("                                 .''.");
+        System.out.println(ANSI_RED + "                                 .''.");
         System.out.println("       .''.             *''*    :_\\/_:     . ");
         System.out.println("      :_\\/_:   .    .:.*_\\/_*   : /\\ :  .'.:.'.");
         System.out.println("  .''.: /\\ : _\\(/_  ':'* /\\ *  : '..'.  -=:o:=-");
@@ -381,11 +381,11 @@ public class Terminal {
         System.out.println("    .-'|  _.|  |    ||   '-__  |   |  |    ||      |");
         System.out.println("    |' | |.    |    ||       | |   |  |    ||      |");
         System.out.println(" ___|  '-'     '    ''       '-'   '-.'    '`      |____");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + ANSI_RESET);
     }
 
     public void printGhost(){
-        System.out.println("    .-----.");
+        System.out.println(ANSI_BLUE + "    .-----.");
         System.out.println("   .' -   - '.");
         System.out.println("  /  .-. .-.  \\");
         System.out.println("  |  | | | |  |");
@@ -401,7 +401,7 @@ public class Terminal {
         System.out.println("      '.        `\\");
         System.out.println("        `'---.   |");
         System.out.println("           ,__) /");
-        System.out.println("            `..'");
+        System.out.println("            `..'" + ANSI_RESET);
     }
 
     public void drawHangman(){
@@ -431,4 +431,7 @@ public class Terminal {
 
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_RED = "\u001B[31m";
 }
