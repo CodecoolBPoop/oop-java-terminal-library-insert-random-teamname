@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.lang.Character;
 import java.util.Arrays;
 
+
 public class Terminal {
     /**
      * The beginning of control sequences.
@@ -346,86 +347,92 @@ public class Terminal {
         return draws[index];
     }
     public void printHangman(){
-        System.out.println(ANSI_BLACK + "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
-        System.out.println("██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
-        System.out.println("███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
-        System.out.println("██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║");
-        System.out.println("██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║");
-        System.out.println("╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝");
+        String format = "%1$-40s %2$-10s\n";
+        System.out.println(ANSI_BLACK);
+        System.out.format(format, " ", "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
+        System.out.format(format, " ", "██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
+        System.out.format(format, " ", "███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
+        System.out.format(format, " ", "██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║");
+        System.out.format(format, " ", "██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║");
+        System.out.format(format, " ", "╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝");
 
     }
 
 
     public void printAligator(){
-        System.out.println("            .-._   _ _ _ _ _ _ _ _       ");
-        System.out.println(" .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
-        System.out.println("'.___ '    .   .--_'-' '-' '-' _'-' '._  ");
-        System.out.println(" V: V 'vv-'   '_   '.       .'  _..' '.'.");
-        System.out.println("   '=.____.=_.--'   :_.__.__:_   '.   : :");
-        System.out.println("           (((____.-'        '-.  /   : :");
-        System.out.println("                             (((-'\\ .' /");
-        System.out.println("                           _____..'  .'  ");
-        System.out.println("                          '-._____.-'    ");
+        String format = "%1$-50s %2$-10s\n";
+        System.out.format(format, " ", "            .-._   _ _ _ _ _ _ _ _       ");
+        System.out.format(format, " ", " .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
+        System.out.format(format, " ", "'.___ '    .   .--_'-' '-' '-' _'-' '._  ");
+        System.out.format(format, " ", " V: V 'vv-'   '_   '.       .'  _..' '.'.");
+        System.out.format(format, " ", "   '=.____.=_.--'   :_.__.__:_   '.   : :");
+        System.out.format(format, " ", "           (((____.-'        '-.  /   : :");
+        System.out.format(format, " ", "                             (((-'\\ .' /");
+        System.out.format(format, " ", "                           _____..'  .'  ");
+        System.out.format(format, " ", "                          '-._____.-'    ");
     }
 
     public void printCelebrate(){
-        System.out.println("                                 .''.");
-        System.out.println("       .''.             *''*    :_\\/_:     . ");
-        System.out.println("      :_\\/_:   .    .:.*_\\/_*   : /\\ :  .'.:.'.");
-        System.out.println("  .''.: /\\ : _\\(/_  ':'* /\\ *  : '..'.  -=:o:=-");
-        System.out.println(" :_\\/_:'.:::. /)\\*''*  .|.* '.\\'/.'_\\(/_'.':'.'");
-        System.out.println(" : /\\ : :::::  '*_\\/_* | |  -= o =- /)\\    '  *");
-        System.out.println("  '..'  ':::'   * /\\ * |'|  .'/.\\'.  '._____");
-        System.out.println("      *        __*..* |  |     :      |.   |' .---''|");
-        System.out.println("       _*   .-'   '-. |  |     .--'|  ||   | _|    |");
-        System.out.println("    .-'|  _.|  |    ||   '-__  |   |  |    ||      |");
-        System.out.println("    |' | |.    |    ||       | |   |  |    ||      |");
-        System.out.println(" ___|  '-'     '    ''       '-'   '-.'    '`      |____");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        String format = "%1$-40s %2$-10s\n";
+        System.out.format(format, " ", "                                 .''.");
+        System.out.format(format, " ", "       .''.             *''*    :_\\/_:     . ");
+        System.out.format(format, " ", "      :_\\/_:   .    .:.*_\\/_*   : /\\ :  .'.:.'.");
+        System.out.format(format, " ", "  .''.: /\\ : _\\(/_  ':'* /\\ *  : '..'.  -=:o:=-");
+        System.out.format(format, " ", " :_\\/_:'.:::. /)\\*''*  .|.* '.\\'/.'_\\(/_'.':'.'");
+        System.out.format(format, " ", " : /\\ : :::::  '*_\\/_* | |  -= o =- /)\\    '  *");
+        System.out.format(format, " ", "  '..'  ':::'   * /\\ * |'|  .'/.\\'.  '._____");
+        System.out.format(format, " ", "      *        __*..* |  |     :      |.   |' .---''|");
+        System.out.format(format, " ", "       _*   .-'   '-. |  |     .--'|  ||   | _|    |");
+        System.out.format(format, " ", "    .-'|  _.|  |    ||   '-__  |   |  |    ||      |");
+        System.out.format(format, " ", "    |' | |.    |    ||       | |   |  |    ||      |");
+        System.out.format(format, " ", " ___|  '-'     '    ''       '-'   '-.'    '`      |____");
+        System.out.format(format, " ", "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
     public void printGhost(){
-        System.out.println("    .-----.");
-        System.out.println("   .' -   - '.");
-        System.out.println("  /  .-. .-.  \\");
-        System.out.println("  |  | | | |  |");
-        System.out.println("   \\ \\o/ \\o/ /");
-        System.out.println("  _/    ^    \\_");
-        System.out.println(" | \\  '---'  / |");
-        System.out.println(" / /`--. .--`\\ \\");
-        System.out.println("/ /'---` `---'\\ \\");
-        System.out.println("'.__.       .__.'");
-        System.out.println("    `|     |`");
-        System.out.println("     |     \\");
-        System.out.println("     \\      '--.");
-        System.out.println("      '.        `\\");
-        System.out.println("        `'---.   |");
-        System.out.println("           ,__) /");
-        System.out.println("            `..'");
+        String format = "%1$-60s %2$-10s\n";
+        System.out.format(format, " ", "    .-----.");
+        System.out.format(format, " ", "   .' -   - '.");
+        System.out.format(format, " ", "  /  .-. .-.  \\");
+        System.out.format(format, " ", "  |  | | | |  |");
+        System.out.format(format, " ", "   \\ \\o/ \\o/ /");
+        System.out.format(format, " ", "  _/    ^    \\_");
+        System.out.format(format, " ", " | \\  '---'  / |");
+        System.out.format(format, " ", " / /`--. .--`\\ \\");
+        System.out.format(format, " ", "/ /'---` `---'\\ \\");
+        System.out.format(format, " ", "'.__.       .__.'");
+        System.out.format(format, " ", "    `|     |`");
+        System.out.format(format, " ", "     |     \\");
+        System.out.format(format, " ", "     \\      '--.");
+        System.out.format(format, " ", "      '.        `\\");
+        System.out.format(format, " ", "        `'---.   |");
+        System.out.format(format, " ", "           ,__) /");
+        System.out.format(format, " ", "            `..'");
     }
 
     public void drawHangman(){
-        System.out.println(" ___________.._______");
-        System.out.println("| .__________))______|");
-        System.out.println("| | / /      ||");
-        System.out.println("| |/ /       ||");
-        System.out.println("| | /        ||.-''.");
-        System.out.println("| |          ||  `/,|");
-        System.out.println("| |          (\\\\`_.'");
-        System.out.println("| |         .-`--'.");
-        System.out.println("| |        /Y . . Y\\");
-        System.out.println("| |       // |   | \\\\");
-        System.out.println("| |      //  | . |  \\\\");
-        System.out.println("| |     ')   |   |   (`");
-        System.out.println("| |          ||'||");
-        System.out.println("| |          || ||");
-        System.out.println("| |          || ||");
-        System.out.println("| |          || ||");
-        System.out.println("| |         / | | \\");
-        System.out.println("----------|_`-' `-' |---|");
-        System.out.println("|-|-------\\ \\       '-|-|");
-        System.out.println("| |        \\ \\        | |");
-        System.out.println(": :         \\ \\       : :");
-        System.out.println(". .          `'       . .");
+        String format = "%1$-60s %2$-10s\n";
+        System.out.format(format, " ", " ___________.._______");
+        System.out.format(format, " ", "| .__________))______|");
+        System.out.format(format, " ", "| | / /      ||");
+        System.out.format(format, " ", "| |/ /       ||");
+        System.out.format(format, " ", "| | /        ||.-''.");
+        System.out.format(format, " ", "| |          ||  `/,|");
+        System.out.format(format, " ", "| |          (\\\\`_.'");
+        System.out.format(format, " ", "| |         .-`--'.");
+        System.out.format(format, " ", "| |        /Y . . Y\\");
+        System.out.format(format, " ", "| |       // |   | \\\\");
+        System.out.format(format, " ", "| |      //  | . |  \\\\");
+        System.out.format(format, " ", "| |     ')   |   |   (`");
+        System.out.format(format, " ", "| |          ||'||");
+        System.out.format(format, " ", "| |          || ||");
+        System.out.format(format, " ", "| |          || ||");
+        System.out.format(format, " ", "| |          || ||");
+        System.out.format(format, " ", "| |         / | | \\");
+        System.out.format(format, " ", "----------|_`-' `-' |---|");
+        System.out.format(format, " ", "|-|-------\\ \\       '-|-|");
+        System.out.format(format, " ", "| |        \\ \\        | |");
+        System.out.format(format, " ", ": :         \\ \\       : :");
+        System.out.format(format, " ", ". .          `'       . .");
     }
 }
