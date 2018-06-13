@@ -139,6 +139,39 @@ public class Terminal {
                         "Riga", "Vaduz", "Vilnius", "Luxembourg", "Skopje", "Valletta", "Monaco", "Podgorica", "Amsterdam", "Oslo", "Warsaw",
                         "Lisbon", "Bucharest", "Moscow", "Belgrade", "Bratislava", "Ljubljana", "Madrid", "Stockholm", "Bern", "Ankara", "Kiev",
                         "London"},
+                {"Audi", "Bentley", "Benz", "BMW", "Bugatti", "Cadillac", "Chevrolet", "Chrysler", "Citroen", "Corvette", "DAF", "Dacia", "Daewoo",
+                        "Daihatsu", "Datsun", "De", "Lorean", "Dino", "Dodge", "Farboud", "Ferrari", "Fiat", "Ford", "Honda", "Hummer", "Hyundai",
+                        "Jaguar", "Jeep", "KIA", "Koenigsegg", "Lada", "Lamborghini", "Lancia", "Land", "Rover", "Lexus", "Ligier", "Lincoln", "Lotus",
+                        "Martini", "Maserati", "Maybach", "Mazda", "McLaren", "MercedesBenz", "Mini", "Mitsubishi", "Nissan", "Noble", "Opel", "Peugeot",
+                        "Pontiac", "Porsche", "Renault", "Rolls", "Royce", "Saab", "Seat", "Skoda", "Smart", "Spyker", "Subaru", "Suzuki", "Toyota", "Vauxhall",
+                        "Volkswagen", "Volvo"},
+                {"Canidae", "Felidae", "Cat", "Cattle", "Dog", "Donkey", "Goat", "Horse", "Pig", "Rabbit", "Aardvark", "Aardwolf", "Albatross", "Alligator",
+                        "Alpaca", "Amphibian", "Anaconda", "Angelfish", "Anglerfish", "Ant", "Anteater", "Antelope", "Antlion", "Ape", "Aphid", "Armadillo",
+                        "Asp", "Bandicoot", "Barnacle", "Barracuda", "Basilisk", "Bass", "Bat", "Bear", "Beaver", "Bedbug", "Bee", "Beetle", "Bird", "Bison",
+                        "Blackbird", "Boa", "Boar", "Bobcat", "Bobolink", "Bonobo", "Booby", "Bovid", "Bug", "Butterfly", "Buzzard", "Camel", "Canid", "Capybara",
+                        "Cardinal", "Caribou", "Carp", "Cat", "Catshark", "Caterpillar", "Catfish", "Cattle", "Centipede", "Cephalopod", "Chameleon", "Cheetah",
+                        "Chickadee", "Chicken", "Chimpanzee", "Chinchilla", "Chipmunk", "Clam", "Clownfish", "Cobra", "Cockroach", "Cod", "Condor", "Constrictor",
+                        "Coral", "Cougar", "Cow", "Coyote", "Crab", "Crane", "Crawdad", "Crayfish", "Cricket", "Crocodile", "Crow", "Cuckoo", "Cicada", "Damselfly",
+                        "Deer", "Dingo", "Dinosaur", "Dog", "Dolphin", "Donkey", "Dormouse", "Dove", "Dragonfly", "Dragon", "Duck", "Eagle", "Earthworm", "Earwig",
+                        "Echidna", "Eel", "Egret", "Elephant", "Elk", "Emu", "Ermine", "Falcon", "Ferret", "Finch", "Firefly", "Fish", "Flamingo", "Flea", "Fly",
+                        "Flyingfish", "Fowl", "Fox", "Frog", "Gamefowl", "Galliform", "Gazelle", "Gecko", "Gerbil", "Gibbon", "Giraffe", "Goat", "Goldfish", "Goose",
+                        "Gopher", "Gorilla", "Grasshopper", "Grouse", "Guan", "Guanaco", "Guineafowl", "Gull", "Guppy", "Haddock", "Halibut", "Hamster", "Hare",
+                        "Harrier", "Hawk", "Hedgehog", "Heron", "Herring", "Hippopotamus", "Hookworm", "Hornet", "Horse", "Hoverfly", "Hummingbird", "Hyena", "Iguana",
+                        "Impala", "Jackal", "Jaguar", "Jay", "Jellyfish", "Junglefowl", "Kangaroo", "Kingfisher", "Kite", "Kiwi", "Koala", "Koi", "Krill", "Ladybug",
+                        "Lamprey", "Lark", "Leech", "Lemming", "Lemur", "Leopard", "Leopon", "Limpet", "Lion", "Lizard", "Llama", "Lobster", "Locust", "Loon", "Louse",
+                        "Lungfish", "Lynx", "Macaw", "Mackerel", "Magpie", "Mammal", "Manatee", "Mandrill", "Marlin", "Marmoset", "Marmot", "Marsupial", "Marten",
+                        "Mastodon", "Meadowlark", "Meerkat", "Mink", "Minnow", "Mite", "Mockingbird", "Mole", "Mollusk", "Mongoose", "Monkey", "Moose", "Mosquito",
+                        "Moth", "Mouse", "Mule", "Muskox", "Narwhal", "Newt", "Opossum", "Orangutan", "Orca", "Ostrich", "Otter", "Owl", "Ox", "Panda", "Panther",
+                        "Parakeet", "Parrot", "Parrotfish", "Partridge", "Peacock", "Peafowl", "Pelican", "Penguin", "Pheasant", "Pig", "Pigeon", "Pike", "Pinniped",
+                        "Piranha", "Planarian", "Platypus", "Pony", "Porcupine", "Porpoise", "Possum", "Prawn", "Primate", "Ptarmigan", "Puffin", "Puma", "Python",
+                        "Quail", "Quelea", "Quokka", "Rabbit", "Raccoon", "Rat", "Rattlesnake", "Raven", "Reindeer", "Reptile", "Rhinoceros", "Roadrunner", "Rodent",
+                        "Rook", "Rooster", "Roundworm", "Sailfish", "Salamander", "Salmon", "Sawfish", "Scallop", "Scorpion", "Seahorse", "Shark", "Sheep", "Shrew",
+                        "Shrimp", "Silkworm", "Skink", "Skunk", "Sloth", "Slug", "Smelt", "Snail", "Snake", "Snipe", "Sparrow", "Spider", "Spoonbill", "Squid",
+                        "Squirrel", "Stingray", "Stoat", "Stork", "Sturgeon", "Swallow", "Swan", "Swift", "Swordfish", "Swordtail", "Tahr", "Takin", "Tapir",
+                        "Tarantula", "Tarsier", "Tern", "Thrush", "Tick", "Tiger", "Tiglon", "Toad", "Tortoise", "Toucan", "Tuna", "Turkey", "Turtle", "Tyrannosaurus",
+                        "Urial", "Vicuna", "Viper", "Vole", "Vulture", "Wallaby", "Walrus", "Wasp", "Warbler", "Weasel", "Whale", "Whippet", "Whitefish", "Wildcat",
+                        "Wildebeest", "Wildfowl", "Wolf", "Wolverine", "Wombat", "Woodpecker", "Worm", "Wren", "Xerinae", "Yak", "Zebra"},
+
         };
 
         int randomNumber = (int) (Math.random() * wordPool[wordGroup].length);
@@ -199,6 +232,8 @@ public class Terminal {
         System.out.println("1. Fruits");
         System.out.println("2. Countries in Europe");
         System.out.println("3. Capital in Europe");
+        System.out.println("4. Cars");
+        System.out.println("5. Animals");
         char wordGroup = input.next().charAt(0);
 
         switch(wordGroup){
@@ -216,6 +251,19 @@ public class Terminal {
                 String randomWord = player.chooseRandomWord(2);
                 play.game(randomWord);
                 break;
+            }
+            case '4': {
+                String randomWord = player.chooseRandomWord(3);
+                play.game(randomWord);
+                break;
+            }
+            case '5': {
+                String randomWord = player.chooseRandomWord(4);
+                play.game(randomWord);
+                break;
+            }
+            default: {
+                player.wordCategory();
             }
         }
     }
@@ -491,4 +539,5 @@ public class Terminal {
     public static final String BACKGROUND_WHITE = "\033[107m";
     public static final String INVISIBLE_TEXT = "\u001B[8m";
     public static final String CYAN_BOLD_BRIGHT = "\033[1;96m";
+    public static final String WHITE = "\u001B[37m";
 }
