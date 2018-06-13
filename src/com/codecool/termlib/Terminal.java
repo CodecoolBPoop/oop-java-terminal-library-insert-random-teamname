@@ -127,19 +127,18 @@ public class Terminal {
     public String chooseRandomWord(int wordGroup) {
         String[][] wordPool = {
                 {"Apple", "Apricot", "Avocado", "Banana", "Blackberry", "Blackcurrant", "Blueberry", "Cherry", "Cloudberry", "Coconut",
-                        "Cranberry", "Dragonfruit", "Elderberry", "Goji berry", "Grape", "Raisin", "Grapefruit", "Guava", "Kiwifruit",
-                        "Lemon", "Lime", "Mango", "Melon", "Orange", "Papaya", "Passionfruit", "Peach,Pear", "Plum", "Pineapple", "Pomelo",
+                        "Cranberry", "Dragonfruit", "Elderberry", "Grape", "Raisin", "Grapefruit", "Guava", "Kiwifruit", "Lemon",
+                        "Lime", "Mango", "Melon", "Orange", "Papaya", "Passionfruit", "Peach", "Pear", "Plum", "Pineapple", "Pomelo",
                         "Raspberry", "Tamarind"},
-                {"Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Czech Republic",
-                        "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Latvia",
-                        "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco", "Netherlands", "Norway", "Poland",
-                        "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Montenegro", "Slovakia", "Slovenia", "Spain", "Sweden",
-                        "Switzerland", "Ukraine", "United Kingdom"},
-                {"Tirana", "Andorra la Vella", "Yerevan", "Vienna", "Baku", "Minsk", "Brussels", "Sarajevo", "Sofia", "Zagreb", "Nicosia",
-                        "Prague", "Copenhagen", "Tallinn", "Helsinki", "Paris", "Tbilisi", "Berlin", "Athens", "Budapest", "Reykjavík", "Dublin",
-                        "Rome", "Pristina", "Riga", "Vaduz", "Vilnius", "Luxembourg", "Skopje", "Valletta", "Chişinău", "Monaco", "Podgorica",
-                        "Amsterdam", "Oslo", "Warsaw", "Lisbon", "Bucharest", "Moscow", "San Marino", "Belgrade", "Bratislava", "Ljubljana",
-                        "Madrid", "Stockholm", "Bern", "Ankara", "Kiev", "London", "Vatican City"},
+                {"Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bulgaria", "Croatia", "Denmark", "Estonia", "Finland", "France",
+                        "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg",
+                        "Malta", "Moldova", "Monaco", "Netherlands", "Norway", "Poland", "Portugal", "Romania", "Russia", "Serbia", "Montenegro",
+                        "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Ukraine"},
+                {"Tirana", "Yerevan", "Vienna", "Baku", "Minsk", "Brussels", "Sarajevo", "Sofia", "Zagreb", "Nicosia", "Prague", "Copenhagen",
+                        "Tallinn", "Helsinki", "Paris", "Tbilisi", "Berlin", "Athens", "Budapest", "Reykjavík", "Dublin", "Rome", "Pristina",
+                        "Riga", "Vaduz", "Vilnius", "Luxembourg", "Skopje", "Valletta", "Monaco", "Podgorica", "Amsterdam", "Oslo", "Warsaw",
+                        "Lisbon", "Bucharest", "Moscow", "Belgrade", "Bratislava", "Ljubljana", "Madrid", "Stockholm", "Bern", "Ankara", "Kiev",
+                        "London"},
                 {"Audi", "Bentley", "Benz", "BMW", "Bugatti", "Cadillac", "Chevrolet", "Chrysler", "Citroen", "Corvette", "DAF", "Dacia", "Daewoo",
                         "Daihatsu", "Datsun", "De", "Lorean", "Dino", "Dodge", "Farboud", "Ferrari", "Fiat", "Ford", "Honda", "Hummer", "Hyundai",
                         "Jaguar", "Jeep", "KIA", "Koenigsegg", "Lada", "Lamborghini", "Lancia", "Land", "Rover", "Lexus", "Ligier", "Lincoln", "Lotus",
@@ -267,7 +266,6 @@ public class Terminal {
                 player.wordCategory();
             }
         }
-
     }
 
     public void ruleBook(){
