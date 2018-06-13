@@ -43,7 +43,7 @@ public class Terminal {
      * Might reset cursor position.
      */
     public void clearScreen() {
-        System.out.print("\033[H\033[2J");
+        System.out.print(CONTROL_CODE+MOVE+CONTROL_CODE+CLEAR);
         System.out.flush();
     }
 
@@ -124,7 +124,7 @@ public class Terminal {
      */
     private void command(String commandString) {
     }
-
+    public static final String ANSI_BLACK = "\u001B[30m";
     public String chooseRandomWord() {
         String[] wordPool = {"project", "apple", "commission"};
 
@@ -142,7 +142,7 @@ public class Terminal {
         Game play = new Game();
         Scanner input = new Scanner(System.in);
         clearScreen();
-        System.out.println("HANGMAN GAME");
+        System.out.println(ANSI_BLACK + "HANGMAN GAME");
         System.out.println("");
         System.out.println(player.chooseDraw(5));
         System.out.println("");

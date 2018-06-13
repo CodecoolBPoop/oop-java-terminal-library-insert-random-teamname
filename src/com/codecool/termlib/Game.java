@@ -55,6 +55,7 @@ public class Game {
     //To call the code open src and run java com.codecool.termlib.Game
     public static void main(String[] args) {
         Terminal player = new Terminal();
+        System.out.println("\033[107m");
         player.startMenu();
 
 
