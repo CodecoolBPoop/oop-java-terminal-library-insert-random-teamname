@@ -357,15 +357,15 @@ public class Terminal {
 
 
     public void printAligator(){
-        System.out.println("            .-._   _ _ _ _ _ _ _ _       ");
-        System.out.println(" .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
-        System.out.println("'.___ '    .   .--_'-' '-' '-' _'-' '._  ");
-        System.out.println(" V: V 'vv-'   '_   '.       .'  _..' '.'.");
-        System.out.println("   '=.____.=_.--'   :_.__.__:_   '.   : :");
-        System.out.println("           (((____.-'        '-.  /   : :");
-        System.out.println("                             (((-'\\ .' /");
-        System.out.println("                           _____..'  .'  ");
-        System.out.println("                          '-._____.-'    ");
+        System.out.println(ANSI_GREEN + "            .-._   _ _ _ _ _ _ _ _       " + ANSI_RESET);
+        System.out.println(ANSI_GREEN + " .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    " + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "'.___ '    .   .--_'-' '-' '-' _'-' '._  " + ANSI_RESET);
+        System.out.println(ANSI_GREEN + " V: V 'vv-'   '_   '.       .'  _..' '.'." + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "   '=.____.=_.--'   :_.__.__:_   '.   : :" + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "           (((____.-'        '-.  /   : :" + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "                             (((-'\\ .' /" + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "                           _____..'  .'  " + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "                          '-._____.-'    " + ANSI_RESET);
     }
 
     public void printCelebrate(){
@@ -428,4 +428,7 @@ public class Terminal {
         System.out.println(": :         \\ \\       : :");
         System.out.println(". .          `'       . .");
     }
+
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_RESET = "\u001B[0m";
 }
