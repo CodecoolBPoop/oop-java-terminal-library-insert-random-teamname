@@ -335,7 +335,7 @@ public class Terminal {
         Terminal player = new Terminal();
         clearScreen();
         System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "May be next time...");
-        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "Your world was " + randomWord);
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "Your word was " + randomWord);
         System.out.println(ANSI_RED + player.losingLivesHangman(0) + ANSI_RESET);
         player.printGhost();
         player.restart();
