@@ -56,7 +56,7 @@ public class Game {
                 lives -= 1;
             }
         }
-        game.youLost();
+        game.youLost(secretWord);
     }
 
 
