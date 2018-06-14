@@ -542,45 +542,6 @@ public class Terminal {
         System.out.format(format, " ", ". .          `'       . .");
     }
 
-    public void drawKeyboard(){
-        char[][] keys = new char[][]{
-            {'Q', 'W', 'E', 'R', 'T', 'Z', 'U'}, {'I', 'O', 'P', 'A', 'S', 'D'},
-                {'F', 'G', 'H', 'J', 'K', 'L', 'Y'}, {'X', 'C', 'V', 'B', 'N', 'M'}
-        };
-        for (int i = 0; i < keys.length; i++){
-            System.out.println();
-            System.out.print("  ");
-            for (int j = 0; j < keys[i].length; j++){
-                if (i == 0 && j == 0){
-                System.out.print(BACKGROUND_YELLOW + keys[i][j] + BACKGROUND_WHITE + "  ");
-            }else{
-                System.out.print(keys[i][j] + "  ");
-                }
-            }
-        }
-        System.out.println();
-    }
-
-    public Character tryToRead() {
-        try
-        {
-            Thread.sleep(1000);
-        }
-        catch(InterruptedException e)
-        {
-            ;
-        }
-        try {
-            if (System.in.available() > 0) {
-                return (char)System.in.read();
-            }
-        }
-        catch (IOException e) {
-            System.err.println("Error " + e.getMessage());
-        }
-        return " ";
-    }
-
     public static final String ANSI_GREEN = "\033[1;32m";
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\033[1;90m";
