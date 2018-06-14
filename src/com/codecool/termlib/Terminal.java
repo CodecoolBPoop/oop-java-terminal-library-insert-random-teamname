@@ -324,7 +324,7 @@ public class Terminal {
     public void quit(){
         clearScreen();
         Terminal player = new Terminal();
-        String format = "%1$-40s %2$-10s\n";
+        String format = "%1$-50s %2$-10s\n";
         System.out.println(BLACK_BOLD + BACKGROUND_WHITE);
         System.out.format(format, " ", "See You Later Alligator!");
         player.printAligator();
@@ -480,7 +480,7 @@ public class Terminal {
 
 
     public void printAligator(){
-        String format = "%1$-30s %2$-10s\n";
+        String format = "%1$-35s %2$-10s\n";
         System.out.println(BACKGROUND_WHITE + ANSI_GREEN);
         System.out.format(format, " ", "            .-._   _ _ _ _ _ _ _ _       ");
         System.out.format(format, " ", " .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
