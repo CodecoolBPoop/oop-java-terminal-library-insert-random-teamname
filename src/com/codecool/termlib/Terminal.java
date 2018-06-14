@@ -4,6 +4,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.lang.Character;
 import java.util.Arrays;
+import java.awt.event.*;
+import java.io.IOException;
 
 public class Terminal {
     /**
@@ -315,7 +317,7 @@ public class Terminal {
     public void quit(){
         clearScreen();
         Terminal player = new Terminal();
-        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "See You Later Aligator!");
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "See You Later Alligator!");
         player.printAligator();
         System.out.println(ANSI_RESET);
         System.exit(0);
@@ -447,87 +449,136 @@ public class Terminal {
         return draws[index];
     }
     public void printHangman(){
-        System.out.println(BACKGROUND_WHITE + ANSI_BLACK + "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
-        System.out.println("██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
-        System.out.println("███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
-        System.out.println("██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║");
-        System.out.println("██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║");
-        System.out.println("╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝" + ANSI_RESET);
+        String format = "%1$-40s %2$-10s\n";
+        System.out.println(BACKGROUND_WHITE + ANSI_BLACK);
+        System.out.format(format, " ", "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
+        System.out.format(format, " ", "██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
+        System.out.format(format, " ", "███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
+        System.out.format(format, " ", "██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║");
+        System.out.format(format, " ", "██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║");
+        System.out.format(format, " ", "╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝");
 
     }
 
 
     public void printAligator(){
-        System.out.println(BACKGROUND_WHITE + ANSI_GREEN + "            .-._   _ _ _ _ _ _ _ _       ");
-        System.out.println(" .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
-        System.out.println("'.___ '    .   .--_'-' '-' '-' _'-' '._  ");
-        System.out.println(" V: V 'vv-'   '_   '.       .'  _..' '.'.");
-        System.out.println("   '=.____.=_.--'   :_.__.__:_   '.   : :");
-        System.out.println("           (((____.-'        '-.  /   : :");
-        System.out.println("                             (((-'\\ .' /");
-        System.out.println("                           _____..'  .'  ");
-        System.out.println("                          '-._____.-'    " + ANSI_RESET);
+        String format = "%1$-50s %2$-10s\n";
+        System.out.println(BACKGROUND_WHITE + ANSI_GREEN);
+        System.out.format(format, " ", "            .-._   _ _ _ _ _ _ _ _       ");
+        System.out.format(format, " ", " .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
+        System.out.format(format, " ", "'.___ '    .   .--_'-' '-' '-' _'-' '._  ");
+        System.out.format(format, " ", " V: V 'vv-'   '_   '.       .'  _..' '.'.");
+        System.out.format(format, " ", "   '=.____.=_.--'   :_.__.__:_   '.   : :");
+        System.out.format(format, " ", "           (((____.-'        '-.  /   : :");
+        System.out.format(format, " ", "                             (((-'\\ .' /");
+        System.out.format(format, " ", "                           _____..'  .'  ");
+        System.out.format(format, " ", "                          '-._____.-'    ");
     }
 
     public void printCelebrate(){
-        System.out.println(BACKGROUND_WHITE + ANSI_RED + "                                 .''.");
-        System.out.println("       .''.             *''*    :_\\/_:     . ");
-        System.out.println("      :_\\/_:   .    .:.*_\\/_*   : /\\ :  .'.:.'.");
-        System.out.println("  .''.: /\\ : _\\(/_  ':'* /\\ *  : '..'.  -=:o:=-");
-        System.out.println(" :_\\/_:'.:::. /)\\*''*  .|.* '.\\'/.'_\\(/_'.':'.'");
-        System.out.println(" : /\\ : :::::  '*_\\/_* | |  -= o =- /)\\    '  *");
-        System.out.println("  '..'  ':::'   * /\\ * |'|  .'/.\\'.  '._____");
-        System.out.println("      *        __*..* |  |     :      |.   |' .---''|");
-        System.out.println("       _*   .-'   '-. |  |     .--'|  ||   | _|    |");
-        System.out.println("    .-'|  _.|  |    ||   '-__  |   |  |    ||      |");
-        System.out.println("    |' | |.    |    ||       | |   |  |    ||      |");
-        System.out.println(" ___|  '-'     '    ''       '-'   '-.'    '`      |____");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + ANSI_RESET);
+        String format = "%1$-40s %2$-10s\n";
+        System.out.println(BACKGROUND_WHITE + ANSI_RED);
+        System.out.format(format, " ", "                                 .''.");
+        System.out.format(format, " ", "       .''.             *''*    :_\\/_:     . ");
+        System.out.format(format, " ", "      :_\\/_:   .    .:.*_\\/_*   : /\\ :  .'.:.'.");
+        System.out.format(format, " ", "  .''.: /\\ : _\\(/_  ':'* /\\ *  : '..'.  -=:o:=-");
+        System.out.format(format, " ", " :_\\/_:'.:::. /)\\*''*  .|.* '.\\'/.'_\\(/_'.':'.'");
+        System.out.format(format, " ", " : /\\ : :::::  '*_\\/_* | |  -= o =- /)\\    '  *");
+        System.out.format(format, " ", "  '..'  ':::'   * /\\ * |'|  .'/.\\'.  '._____");
+        System.out.format(format, " ", "      *        __*..* |  |     :      |.   |' .---''|");
+        System.out.format(format, " ", "       _*   .-'   '-. |  |     .--'|  ||   | _|    |");
+        System.out.format(format, " ", "    .-'|  _.|  |    ||   '-__  |   |  |    ||      |");
+        System.out.format(format, " ", "    |' | |.    |    ||       | |   |  |    ||      |");
+        System.out.format(format, " ", " ___|  '-'     '    ''       '-'   '-.'    '`      |____");
+        System.out.format(format, " ", "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
     public void printGhost(){
-        System.out.println(BACKGROUND_WHITE + ANSI_BLUE + "     .-----.");
-        System.out.println("   .' -   - '.");
-        System.out.println("  /  .-. .-.  \\");
-        System.out.println("  |  | | | |  |");
-        System.out.println("   \\ \\o/ \\o/ /");
-        System.out.println("  _/    ^    \\_");
-        System.out.println(" | \\  '---'  / |");
-        System.out.println(" / /`--. .--`\\ \\");
-        System.out.println("/ /'---` `---'\\ \\");
-        System.out.println("'.__.       .__.'");
-        System.out.println("    `|     |`");
-        System.out.println("     |     \\");
-        System.out.println("     \\      '--.");
-        System.out.println("      '.        `\\");
-        System.out.println("        `'---.   |");
-        System.out.println("           ,__) /");
-        System.out.println("            `..'" + ANSI_RESET);
+        String format = "%1$-60s %2$-10s\n";
+        System.out.println(BACKGROUND_WHITE + ANSI_BLUE);
+        System.out.format(format, " ", "    .-----.");
+        System.out.format(format, " ", "   .' -   - '.");
+        System.out.format(format, " ", "  /  .-. .-.  \\");
+        System.out.format(format, " ", "  |  | | | |  |");
+        System.out.format(format, " ", "   \\ \\o/ \\o/ /");
+        System.out.format(format, " ", "  _/    ^    \\_");
+        System.out.format(format, " ", " | \\  '---'  / |");
+        System.out.format(format, " ", " / /`--. .--`\\ \\");
+        System.out.format(format, " ", "/ /'---` `---'\\ \\");
+        System.out.format(format, " ", "'.__.       .__.'");
+        System.out.format(format, " ", "    `|     |`");
+        System.out.format(format, " ", "     |     \\");
+        System.out.format(format, " ", "     \\      '--.");
+        System.out.format(format, " ", "      '.        `\\");
+        System.out.format(format, " ", "        `'---.   |");
+        System.out.format(format, " ", "           ,__) /");
+        System.out.format(format, " ", "            `..'");
     }
 
     public void drawHangman(){
-        System.out.println(BACKGROUND_WHITE + BLINK + ANSI_BLACK + " ___________.._______");
-        System.out.println("| .__________))______|");
-        System.out.println("| | / /      ||");
-        System.out.println("| |/ /       ||");
-        System.out.println("| | /        ||.-''.");
-        System.out.println("| |          ||  `/,|");
-        System.out.println("| |          (\\\\`_.'");
-        System.out.println("| |         .-`--'.");
-        System.out.println("| |        /Y . . Y\\");
-        System.out.println("| |       // |   | \\\\");
-        System.out.println("| |      //  | . |  \\\\");
-        System.out.println("| |     ')   |   |   (`");
-        System.out.println("| |          ||'||");
-        System.out.println("| |          || ||");
-        System.out.println("| |          || ||");
-        System.out.println("| |          || ||");
-        System.out.println("| |         / | | \\");
-        System.out.println("----------|_`-' `-' |---|");
-        System.out.println("|-|-------\\ \\       '-|-|");
-        System.out.println("| |        \\ \\        | |");
-        System.out.println(": :         \\ \\       : :");
-        System.out.println(". .          `'       . ." + ANSI_RESET);
+        String format = "%1$-60s %2$-10s\n";
+        System.out.println(BACKGROUND_WHITE + BLINK + ANSI_BLACK);
+        System.out.format(format, " ", " ___________.._______");
+        System.out.format(format, " ", "| .__________))______|");
+        System.out.format(format, " ", "| | / /      ||");
+        System.out.format(format, " ", "| |/ /       ||");
+        System.out.format(format, " ", "| | /        ||.-''.");
+        System.out.format(format, " ", "| |          ||  `/,|");
+        System.out.format(format, " ", "| |          (\\\\`_.'");
+        System.out.format(format, " ", "| |         .-`--'.");
+        System.out.format(format, " ", "| |        /Y . . Y\\");
+        System.out.format(format, " ", "| |       // |   | \\\\");
+        System.out.format(format, " ", "| |      //  | . |  \\\\");
+        System.out.format(format, " ", "| |     ')   |   |   (`");
+        System.out.format(format, " ", "| |          ||'||");
+        System.out.format(format, " ", "| |          || ||");
+        System.out.format(format, " ", "| |          || ||");
+        System.out.format(format, " ", "| |          || ||");
+        System.out.format(format, " ", "| |         / | | \\");
+        System.out.format(format, " ", "----------|_`-' `-' |---|");
+        System.out.format(format, " ", "|-|-------\\ \\       '-|-|");
+        System.out.format(format, " ", "| |        \\ \\        | |");
+        System.out.format(format, " ", ": :         \\ \\       : :");
+        System.out.format(format, " ", ". .          `'       . .");
+    }
+
+    public void drawKeyboard(){
+        char[][] keys = new char[][]{
+            {'Q', 'W', 'E', 'R', 'T', 'Z', 'U'}, {'I', 'O', 'P', 'A', 'S', 'D'},
+                {'F', 'G', 'H', 'J', 'K', 'L', 'Y'}, {'X', 'C', 'V', 'B', 'N', 'M'}
+        };
+        for (int i = 0; i < keys.length; i++){
+            System.out.println();
+            System.out.print("  ");
+            for (int j = 0; j < keys[i].length; j++){
+                if (i == 0 && j == 0){
+                System.out.print(BACKGROUND_YELLOW + keys[i][j] + BACKGROUND_WHITE + "  ");
+            }else{
+                System.out.print(keys[i][j] + "  ");
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    public Character tryToRead() {
+        try
+        {
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException e)
+        {
+            ;
+        }
+        try {
+            if (System.in.available() > 0) {
+                return (char)System.in.read();
+            }
+        }
+        catch (IOException e) {
+            System.err.println("Error " + e.getMessage());
+        }
+        return " ";
     }
 
     public static final String ANSI_GREEN = "\033[1;32m";
@@ -539,7 +590,7 @@ public class Terminal {
     public static final String BLINK = "\u001B[5m";
     public static final String HIGH_INTENSITY = "\u001B[1m";
     public static final String BACKGROUND_WHITE = "\033[107m";
+    public static final String BACKGROUND_YELLOW = "\u001b[43;1m";
     public static final String INVISIBLE_TEXT = "\u001B[8m";
     public static final String CYAN_BOLD_BRIGHT = "\033[1;96m";
-    public static final String WHITE = "\u001B[37m";
 }
