@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.lang.Character;
 import java.util.Arrays;
 import java.awt.event.*;
+import java.io.IOException;
 
 public class Terminal {
     /**
@@ -509,6 +510,26 @@ public class Terminal {
             }
         }
         System.out.println();
+    }
+
+    public Character tryToRead() {
+        try
+        {
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException e)
+        {
+            ;
+        }
+        try {
+            if (System.in.available() > 0) {
+                return (char)System.in.read();
+            }
+        }
+        catch (IOException e) {
+            System.err.println("Error " + e.getMessage());
+        }
+        return " ";
     }
 
     public static final String ANSI_GREEN = "\033[1;32m";
