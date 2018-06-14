@@ -20,7 +20,7 @@ public class Game {
             System.out.print(game.BLACK_BOLD + game.BACKGROUND_WHITE + "Lives: " + lives);
             System.out.print("\t To exit type: 0\t");
             //System.out.println("\tThe answer is: " + secretWord);
-            System.out.println("");
+            System.out.println(game.BLACK_BOLD + game.BACKGROUND_WHITE + "");
             System.out.println("");
             System.out.println(board);
             System.out.println("");
@@ -33,6 +33,7 @@ public class Game {
             if (guess == '0') {
                 game.quit();
             }
+
             if (!Character.isLetter(guess)) {
                 game.clearScreen();
                 System.out.println("Letters only!");
@@ -54,7 +55,7 @@ public class Game {
                 lives -= 1;
             }
         }
-        game.youLost();
+        game.youLost(secretWord);
     }
 
 
