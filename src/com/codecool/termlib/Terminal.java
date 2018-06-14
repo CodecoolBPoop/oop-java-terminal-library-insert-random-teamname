@@ -231,7 +231,7 @@ public class Terminal {
         System.out.println("Please select a number from the given options");
         System.out.println("1. Fruits");
         System.out.println("2. Countries in Europe");
-        System.out.println("3. Capital in Europe");
+        System.out.println("3. Capitals in Europe");
         System.out.println("4. Cars");
         System.out.println("5. Animals");
         char wordGroup = input.next().charAt(0);
@@ -350,7 +350,7 @@ public class Terminal {
         char restartChoice = input.next().charAt(0);
         switch(restartChoice){
             case '1': {
-                player.startMenu();
+                player.wordCategory();
                 break;
             }
             case '2': {
