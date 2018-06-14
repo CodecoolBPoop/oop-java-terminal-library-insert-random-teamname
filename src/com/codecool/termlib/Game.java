@@ -29,10 +29,8 @@ public class Game {
             System.out.println(game.BLACK_BOLD + game.BACKGROUND_WHITE);
             System.out.format(format, " ", "Used letters:" + usedLetters);
             game.win(lettersToGuess, board);
-            //game.drawKeyboard();
             Scanner input = new Scanner(System.in);
             char guess = Character.toLowerCase(input.next().charAt(0));
-            //char guess = game.tryToRead();
             if (guess == '0') {
                 game.quit();
             }
