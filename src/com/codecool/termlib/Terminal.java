@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.lang.Character;
 import java.util.Arrays;
-
+import java.awt.event.*;
 
 public class Terminal {
     /**
@@ -125,12 +125,26 @@ public class Terminal {
      */
     private void command(String commandString) {
     }
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public String chooseRandomWord() {
-        String[] wordPool = {"project", "apple", "commission"};
+    public String chooseRandomWord(int wordGroup) {
+        String[][] wordPool = {
+                {"Apple", "Apricot", "Avocado", "Banana", "Blackberry", "Blackcurrant", "Blueberry", "Cherry", "Cloudberry", "Coconut",
+                        "Cranberry", "Dragonfruit", "Elderberry", "Goji berry", "Grape", "Raisin", "Grapefruit", "Guava", "Kiwifruit",
+                        "Lemon", "Lime", "Mango", "Melon", "Orange", "Papaya", "Passionfruit", "Peach,Pear", "Plum", "Pineapple", "Pomelo",
+                        "Raspberry", "Tamarind"},
+                {"Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Czech Republic",
+                        "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Latvia",
+                        "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco", "Netherlands", "Norway", "Poland",
+                        "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Montenegro", "Slovakia", "Slovenia", "Spain", "Sweden",
+                        "Switzerland", "Ukraine", "United Kingdom"},
+                {"Tirana", "Andorra la Vella", "Yerevan", "Vienna", "Baku", "Minsk", "Brussels", "Sarajevo", "Sofia", "Zagreb", "Nicosia",
+                        "Prague", "Copenhagen", "Tallinn", "Helsinki", "Paris", "Tbilisi", "Berlin", "Athens", "Budapest", "Reykjavík", "Dublin",
+                        "Rome", "Pristina", "Riga", "Vaduz", "Vilnius", "Luxembourg", "Skopje", "Valletta", "Chişinău", "Monaco", "Podgorica",
+                        "Amsterdam", "Oslo", "Warsaw", "Lisbon", "Bucharest", "Moscow", "San Marino", "Belgrade", "Bratislava", "Ljubljana",
+                        "Madrid", "Stockholm", "Bern", "Ankara", "Kiev", "London", "Vatican City"},
+        };
 
-        int randomNumber = (int) (Math.random() * wordPool.length);
-        return wordPool[randomNumber];
+        int randomNumber = (int) (Math.random() * wordPool[wordGroup].length);
+        return wordPool[wordGroup][randomNumber].toLowerCase();
     }
 
     public boolean checkChar(ArrayList usedLetters, char guess) {
@@ -145,16 +159,17 @@ public class Terminal {
         clearScreen();
         player.printHangman();
         player.drawHangman();
-        System.out.println("Please select a number from the given options");
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "Please select a number from the given options");
         System.out.println("1. Player VS Comp");
         System.out.println("2. Player VS Player");
         System.out.println("3. Rulebook");
         System.out.println("0. Quit");
         char choice = input.next().charAt(0);
+
         switch(choice){
             case '1': {
-                String randomWord = player.chooseRandomWord();
-                play.game(randomWord);
+                System.out.println();
+                player.wordCategory();
                 break;
             }
             case '2': {
@@ -176,11 +191,42 @@ public class Terminal {
         }
     }
 
+
+    public void wordCategory() {
+        clearScreen();
+        Terminal player = new Terminal();
+        Game play = new Game();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please select a number from the given options");
+        System.out.println("1. Fruits");
+        System.out.println("2. Countries in Europe");
+        System.out.println("3. Capital in Europe");
+        char wordGroup = input.next().charAt(0);
+
+        switch(wordGroup){
+            case '1': {
+                String randomWord = player.chooseRandomWord(0);
+                play.game(randomWord);
+                break;
+            }
+            case '2': {
+                String randomWord = player.chooseRandomWord(1);
+                play.game(randomWord);
+                break;
+            }
+            case '3': {
+                String randomWord = player.chooseRandomWord(2);
+                play.game(randomWord);
+                break;
+            }
+        }
+    }
+
     public void ruleBook(){
         Terminal player = new Terminal();
         Game play = new Game();
-        System.out.println("\033[H\033[2J");
-        System.out.println("The Rules:");
+        player.clearScreen();
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "The Rules:");
         System.out.println("1. You have 5 lives");
         System.out.println("2. Guess a letter and if it's wrong you lose a life");
         System.out.println("3. You can only guess one character at a time");
@@ -196,8 +242,8 @@ public class Terminal {
         char choice = input.next().charAt(0);
         switch(choice){
             case '1': {
-                String randomWord = player.chooseRandomWord();
-                play.game(randomWord);
+                System.out.println();
+                player.wordCategory();
                 break;
             }
             case '2': {
@@ -222,15 +268,16 @@ public class Terminal {
     public void quit(){
         clearScreen();
         Terminal player = new Terminal();
-        System.out.println("See You Later Aligator!");
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "See You Later Alligator!");
         player.printAligator();
+        System.out.println(ANSI_RESET);
         System.exit(0);
     }
 
     public void win(char [] letterToGuess, char [] board ){
         Terminal win = new Terminal();
         if (Arrays.equals(letterToGuess, board)) {
-            System.out.println("You Won");
+            System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "CONGRATULATIONS!!!");
             win.printCelebrate();
             win.restart();
         }
@@ -240,8 +287,8 @@ public class Terminal {
     public void youLost(){
         Terminal player = new Terminal();
         clearScreen();
-        System.out.println("YOU'VE LOST!");
-        System.out.println(player.chooseDraw(0));
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "May be next time...");
+        System.out.println(ANSI_RED + player.losingLivesHangman(0) + ANSI_RESET);
         player.printGhost();
         player.restart();
     }
@@ -249,7 +296,7 @@ public class Terminal {
 
     public void restart() {
         Terminal player = new Terminal();
-        System.out.println("Do you want to play again?");
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "Do you want to play again?");
         System.out.println("1. Yes");
         System.out.println("2. No");
         Scanner input = new Scanner(System.in);
@@ -271,13 +318,18 @@ public class Terminal {
     }
 
     public String userWord(){
+        Terminal player = new Terminal();
         Scanner input = new Scanner(System.in);
         System.out.print("Please input a word: ");
         String word = input.nextLine().toLowerCase();
+        if (!word.matches("[a-zA-Z]+")){
+            System.out.println("Letters only!");
+            return player.userWord();
+            }
         return word;
     }
 
-    public String chooseDraw(Integer index){
+    public String losingLivesHangman(Integer index){
         String[] draws = {
             "-------\n"
         + " |   |\n"
@@ -348,7 +400,7 @@ public class Terminal {
     }
     public void printHangman(){
         String format = "%1$-40s %2$-10s\n";
-        System.out.println(ANSI_BLACK);
+        System.out.println(BACKGROUND_WHITE + ANSI_BLACK);
         System.out.format(format, " ", "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
         System.out.format(format, " ", "██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
         System.out.format(format, " ", "███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
@@ -361,6 +413,7 @@ public class Terminal {
 
     public void printAligator(){
         String format = "%1$-50s %2$-10s\n";
+        System.out.println(BACKGROUND_WHITE + ANSI_GREEN);
         System.out.format(format, " ", "            .-._   _ _ _ _ _ _ _ _       ");
         System.out.format(format, " ", " .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
         System.out.format(format, " ", "'.___ '    .   .--_'-' '-' '-' _'-' '._  ");
@@ -374,6 +427,7 @@ public class Terminal {
 
     public void printCelebrate(){
         String format = "%1$-40s %2$-10s\n";
+        System.out.println(BACKGROUND_WHITE + ANSI_RED);
         System.out.format(format, " ", "                                 .''.");
         System.out.format(format, " ", "       .''.             *''*    :_\\/_:     . ");
         System.out.format(format, " ", "      :_\\/_:   .    .:.*_\\/_*   : /\\ :  .'.:.'.");
@@ -391,6 +445,7 @@ public class Terminal {
 
     public void printGhost(){
         String format = "%1$-60s %2$-10s\n";
+        System.out.println(BACKGROUND_WHITE + ANSI_BLUE);
         System.out.format(format, " ", "    .-----.");
         System.out.format(format, " ", "   .' -   - '.");
         System.out.format(format, " ", "  /  .-. .-.  \\");
@@ -412,6 +467,7 @@ public class Terminal {
 
     public void drawHangman(){
         String format = "%1$-60s %2$-10s\n";
+        System.out.println(BACKGROUND_WHITE + BLINK + ANSI_BLACK);
         System.out.format(format, " ", " ___________.._______");
         System.out.format(format, " ", "| .__________))______|");
         System.out.format(format, " ", "| | / /      ||");
@@ -435,4 +491,36 @@ public class Terminal {
         System.out.format(format, " ", ": :         \\ \\       : :");
         System.out.format(format, " ", ". .          `'       . .");
     }
+
+    public void drawKeyboard(){
+        char[][] keys = new char[][]{
+            {'Q', 'W', 'E', 'R', 'T', 'Z', 'U'}, {'I', 'O', 'P', 'A', 'S', 'D'},
+                {'F', 'G', 'H', 'J', 'K', 'L', 'Y'}, {'X', 'C', 'V', 'B', 'N', 'M'}
+        };
+        for (int i = 0; i < keys.length; i++){
+            System.out.println();
+            System.out.print("  ");
+            for (int j = 0; j < keys[i].length; j++){
+                if (i == 0 && j == 0){
+                System.out.print(BACKGROUND_YELLOW + keys[i][j] + BACKGROUND_WHITE + "  ");
+            }else{
+                System.out.print(keys[i][j] + "  ");
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    public static final String ANSI_GREEN = "\033[1;32m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\033[1;90m";
+    public static final String BLACK_BOLD = "\033[1;30m";
+    public static final String ANSI_BLUE = "\033[1;94m";
+    public static final String ANSI_RED = "\033[1;91m";
+    public static final String BLINK = "\u001B[5m";
+    public static final String HIGH_INTENSITY = "\u001B[1m";
+    public static final String BACKGROUND_WHITE = "\033[107m";
+    public static final String BACKGROUND_YELLOW = "\u001b[43;1m";
+    public static final String INVISIBLE_TEXT = "\u001B[8m";
+    public static final String CYAN_BOLD_BRIGHT = "\033[1;96m";
 }

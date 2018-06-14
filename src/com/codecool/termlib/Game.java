@@ -1,5 +1,4 @@
 package com.codecool.termlib;
-
 import com.codecool.termlib.Terminal;
 import java.util.Scanner;
 import java.util.Arrays;
@@ -18,24 +17,31 @@ public class Game {
         ArrayList usedLetters = new ArrayList();
         int lives = 5;
         while (lives > 0) {
-            System.out.print("Lives: " + lives);
-            System.out.println("\t To exit type: 0");
+            System.out.print(game.BLACK_BOLD + game.BACKGROUND_WHITE + "Lives: " + lives);
+            System.out.print("\t To exit type: 0\t");
+            //System.out.println("\tThe answer is: " + secretWord);
             System.out.println("");
             System.out.println("");
             System.out.println(board);
             System.out.println("");
             System.out.println("");
-            System.out.println(game.chooseDraw(lives));
-            System.out.println("Used letters:" + usedLetters);
+            System.out.println(game.BLACK_BOLD + game.ANSI_RED + game.losingLivesHangman(lives) + game.ANSI_RESET);
+            System.out.println(game.BLACK_BOLD + game.BACKGROUND_WHITE + "Used letters:" + usedLetters);
             game.win(lettersToGuess, board);
+            game.drawKeyboard();
             Scanner input = new Scanner(System.in);
             char guess = Character.toLowerCase(input.next().charAt(0));
-            game.clearScreen();
             if (guess == '0') {
                 game.quit();
             }
+            if (!Character.isLetter(guess)) {
+                game.clearScreen();
+                System.out.println("Letters only!");
+                continue;
+                }
+            game.clearScreen();
             if (game.checkChar(usedLetters, guess)){
-                System.out.println("You've already guessed this letter!");
+                System.out.println(game.BLACK_BOLD + game.BACKGROUND_WHITE + "You've already guessed this letter!");
                 continue;
             }
             usedLetters.add(guess);
@@ -56,8 +62,9 @@ public class Game {
     //To call the code open src and run java com.codecool.termlib.Game
     public static void main(String[] args) {
         Terminal player = new Terminal();
-        System.out.println("\033[107m");
+        System.out.println(player.BACKGROUND_WHITE);
         player.startMenu();
+        System.out.println(player.ANSI_RESET);
 
 
     }
