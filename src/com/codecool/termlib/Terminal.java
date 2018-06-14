@@ -192,11 +192,13 @@ public class Terminal {
         clearScreen();
         player.printHangman();
         player.drawHangman();
-        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "Please select a number from the given options");
-        System.out.println("1. Player VS Comp");
-        System.out.println("2. Player VS Player");
-        System.out.println("3. Rulebook");
-        System.out.println("0. Quit");
+        String format = "%1$-40s %2$-10s\n";
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE);
+        System.out.format(format, " ", "Please select a number from the given options");
+        System.out.format(format, " ", "1. Player VS Comp");
+        System.out.format(format, " ", "2. Player VS Player");
+        System.out.format(format, " ", "3. Rulebook");
+        System.out.format(format, " ", "0. Quit");
         char choice = input.next().charAt(0);
 
         switch(choice){
@@ -230,15 +232,21 @@ public class Terminal {
         Terminal player = new Terminal();
         Game play = new Game();
         Scanner input = new Scanner(System.in);
-        System.out.println("Please select a number from the given options");
-        System.out.println("1. Fruits");
-        System.out.println("2. Countries in Europe");
-        System.out.println("3. Capitals in Europe");
-        System.out.println("4. Cars");
-        System.out.println("5. Animals");
+        String format = "%1$-40s %2$-10s\n";
+        System.out.format(format, " ", "Please select a number from the given options");
+        System.out.format(format, " ", "1. Fruits");
+        System.out.format(format, " ", "2. Countries in Europe");
+        System.out.format(format, " ", "3. Capitals in Europe");
+        System.out.format(format, " ", "4. Cars");
+        System.out.format(format, " ", "5. Animals");
+        System.out.format(format, " ", "0. Home Page");
         char wordGroup = input.next().charAt(0);
 
         switch(wordGroup){
+            case '0': {
+                player.startMenu();
+                break;
+            }
             case '1': {
                 String randomWord = player.chooseRandomWord(0);
                 play.game(randomWord);
@@ -274,18 +282,17 @@ public class Terminal {
         Terminal player = new Terminal();
         Game play = new Game();
         player.clearScreen();
-        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "The Rules:");
-        System.out.println("1. You have 5 lives");
-        System.out.println("2. Guess a letter and if it's wrong you lose a life");
-        System.out.println("3. You can only guess one character at a time");
-        System.out.println("4. In order to win fill in the blanks before losing all your lives");
-        System.out.println("5. You can only give letters");
+        String format = "%1$-30s %2$-10s\n";
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE);
+        System.out.format(format, " ", "The Rules:");
+        System.out.format(format, " ", "1. You have 5 lives");
+        System.out.format(format, " ", "2. Guess a letter and if it's wrong you lose a life");
+        System.out.format(format, " ", "3. You can only guess one character at a time");
+        System.out.format(format, " ", "4. In order to win fill in the blanks before losing all your lives");
+        System.out.format(format, " ", "5. You can only give letters");
         System.out.println();
-        System.out.println("Please select a number");
-        System.out.print("1. Player VS Computer  ");
-        System.out.print("  2. Player VS Player  ");
-        System.out.print("  3. Go back  ");
-        System.out.print("  0. Quit");
+        System.out.format(format, " ", "Please select a number");
+        System.out.format(format, " ", "1. Player VS Computer    2. Player VS Player    3. Go back    0. Quit");
         System.out.println();
         Scanner input = new Scanner(System.in);
         char choice = input.next().charAt(0);
@@ -317,7 +324,9 @@ public class Terminal {
     public void quit(){
         clearScreen();
         Terminal player = new Terminal();
-        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "See You Later Alligator!");
+        String format = "%1$-50s %2$-10s\n";
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE);
+        System.out.format(format, " ", "See You Later Alligator!");
         player.printAligator();
         System.out.println(ANSI_RESET);
         System.exit(0);
@@ -326,7 +335,9 @@ public class Terminal {
     public void win(char [] letterToGuess, char [] board ){
         Terminal win = new Terminal();
         if (Arrays.equals(letterToGuess, board)) {
-            System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "CONGRATULATIONS!!!");
+            String format = "%1$-40s %2$-10s\n";
+            System.out.println(BLACK_BOLD + BACKGROUND_WHITE);
+            System.out.format(format, " ", "CONGRATULATIONS!!!");
             win.printCelebrate();
             win.restart();
         }
@@ -336,8 +347,11 @@ public class Terminal {
     public void youLost(String randomWord){
         Terminal player = new Terminal();
         clearScreen();
-        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "May be next time...");
-        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "Your word was " + randomWord);
+        String format = "%1$-40s %2$-10s\n";
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE);
+        System.out.format(format, " ", "May be next time...");
+        System.out.format(format, " ", "Your word was " + randomWord);
+        System.out.println();
         System.out.println(ANSI_RED + player.losingLivesHangman(0) + ANSI_RESET);
         player.printGhost();
         player.restart();
@@ -346,9 +360,11 @@ public class Terminal {
 
     public void restart() {
         Terminal player = new Terminal();
-        System.out.println(BLACK_BOLD + BACKGROUND_WHITE + "Do you want to play again?");
-        System.out.println("1. Yes");
-        System.out.println("2. No");
+        String format = "%1$-40s %2$-10s\n";
+        System.out.println(BLACK_BOLD + BACKGROUND_WHITE);
+        System.out.format(format, " ", "Do you want to play again?");
+        System.out.format(format, " ", "1. Yes");
+        System.out.format(format, " ", "2. No");
         Scanner input = new Scanner(System.in);
         char restartChoice = input.next().charAt(0);
         switch(restartChoice){
@@ -370,99 +386,101 @@ public class Terminal {
     public String userWord(){
         Terminal player = new Terminal();
         Scanner input = new Scanner(System.in);
-        System.out.print("Please input a word: ");
+        String format = "%1$-40s %2$-10s\n";
+        System.out.format(format, " ", "Please input a word: ");
         String word = input.nextLine().toLowerCase();
         if (!word.matches("[a-zA-Z]+")){
-            System.out.println("Letters only!");
+            System.out.format(format, " ", "Letters only!");
             return player.userWord();
             }
         return word;
     }
 
     public String losingLivesHangman(Integer index){
+        String format = "%1$-40s %2$-10s\n";
         String[] draws = {
-            "-------\n"
-        + " |   |\n"
-        + " | (O.o)\n"
-        + " | /-+-\\\n"
-        + " |   | \n"
-        + " |   | \n"
-        + " |  | |\n"
-        + " |  | |\n"
-        + " |    \n"
-        + " |    \n"
-        + "--------",
-            "-------\n"
-        + " |   |\n"
-        + " | (O.o)\n"
-        + " | /-+-\\\n"
-        + " |   | \n"
-        + " |   | \n"
-        + " |  |  \n"
-        + " |  |  \n"
-        + " |    \n"
-        + " |    \n"
-        + "--------",
-           "-------\n"
-        + " |   |\n"
-        + " | (O.o)\n"
-        + " | /-+-\\\n"
-        + " |   | \n"
-        + " |   | \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + "--------",
-           "-------\n"
-        + " |   |\n"
-        + " | (O.o)\n"
-        + " | /-+-\\\n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + "--------",
-           "-------\n"
-        + " |   |\n"
-        + " | (O.o)\n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + "--------",
-           "-------\n"
-        + " |   |\n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + " |    \n"
-        + "--------\n"};
+                "\t\t\t\t\t\t\t-------\n"
+        + "\t\t\t\t\t\t\t |   |\n"
+        + "\t\t\t\t\t\t\t | (O.o)\n"
+        + "\t\t\t\t\t\t\t | /-+-\\\n"
+        + "\t\t\t\t\t\t\t |   | \n"
+        + "\t\t\t\t\t\t\t |   | \n"
+        + "\t\t\t\t\t\t\t |  | |\n"
+        + "\t\t\t\t\t\t\t |  | |\n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t--------",
+            "\t\t\t\t\t\t\t-------\n"
+        + "\t\t\t\t\t\t\t |   |\n"
+        + "\t\t\t\t\t\t\t | (O.o)\n"
+        + "\t\t\t\t\t\t\t | /-+-\\\n"
+        + "\t\t\t\t\t\t\t |   | \n"
+        + "\t\t\t\t\t\t\t |   | \n"
+        + "\t\t\t\t\t\t\t |  |  \n"
+        + "\t\t\t\t\t\t\t |  |  \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t--------",
+           "\t\t\t\t\t\t\t-------\n"
+        + "\t\t\t\t\t\t\t |   |\n"
+        + "\t\t\t\t\t\t\t | (O.o)\n"
+        + "\t\t\t\t\t\t\t | /-+-\\\n"
+        + "\t\t\t\t\t\t\t |   | \n"
+        + "\t\t\t\t\t\t\t |   | \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t--------",
+           "\t\t\t\t\t\t\t-------\n"
+        + "\t\t\t\t\t\t\t |   |\n"
+        + "\t\t\t\t\t\t\t | (O.o)\n"
+        + "\t\t\t\t\t\t\t | /-+-\\\n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t--------",
+           "\t\t\t\t\t\t\t-------\n"
+        + "\t\t\t\t\t\t\t |   |\n"
+        + "\t\t\t\t\t\t\t | (O.o)\n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t--------",
+           "\t\t\t\t\t\t\t-------\n"
+        + "\t\t\t\t\t\t\t |   |\n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t |    \n"
+        + "\t\t\t\t\t\t\t--------\n"};
         return draws[index];
     }
     public void printHangman(){
-        String format = "%1$-40s %2$-10s\n";
+        String format = "%1$-30s %2$-10s\n";
         System.out.println(BACKGROUND_WHITE + ANSI_BLACK);
         System.out.format(format, " ", "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗");
         System.out.format(format, " ", "██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║");
         System.out.format(format, " ", "███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║");
         System.out.format(format, " ", "██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║");
         System.out.format(format, " ", "██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║");
-        System.out.format(format, " ", "╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝");
+        System.out.format(format, " ", "╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝" + ANSI_RESET);
 
     }
 
 
     public void printAligator(){
-        String format = "%1$-50s %2$-10s\n";
+        String format = "%1$-35s %2$-10s\n";
         System.out.println(BACKGROUND_WHITE + ANSI_GREEN);
         System.out.format(format, " ", "            .-._   _ _ _ _ _ _ _ _       ");
         System.out.format(format, " ", " .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.    ");
@@ -472,11 +490,11 @@ public class Terminal {
         System.out.format(format, " ", "           (((____.-'        '-.  /   : :");
         System.out.format(format, " ", "                             (((-'\\ .' /");
         System.out.format(format, " ", "                           _____..'  .'  ");
-        System.out.format(format, " ", "                          '-._____.-'    ");
+        System.out.format(format, " ", "                          '-._____.-'    " + ANSI_RESET);
     }
 
     public void printCelebrate(){
-        String format = "%1$-40s %2$-10s\n";
+        String format = "%1$-35s %2$-10s\n";
         System.out.println(BACKGROUND_WHITE + ANSI_RED);
         System.out.format(format, " ", "                                 .''.");
         System.out.format(format, " ", "       .''.             *''*    :_\\/_:     . ");
@@ -490,11 +508,11 @@ public class Terminal {
         System.out.format(format, " ", "    .-'|  _.|  |    ||   '-__  |   |  |    ||      |");
         System.out.format(format, " ", "    |' | |.    |    ||       | |   |  |    ||      |");
         System.out.format(format, " ", " ___|  '-'     '    ''       '-'   '-.'    '`      |____");
-        System.out.format(format, " ", "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.format(format, " ", "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + ANSI_RESET);
     }
 
     public void printGhost(){
-        String format = "%1$-60s %2$-10s\n";
+        String format = "%1$-50s %2$-10s\n";
         System.out.println(BACKGROUND_WHITE + ANSI_BLUE);
         System.out.format(format, " ", "    .-----.");
         System.out.format(format, " ", "   .' -   - '.");
@@ -512,11 +530,11 @@ public class Terminal {
         System.out.format(format, " ", "      '.        `\\");
         System.out.format(format, " ", "        `'---.   |");
         System.out.format(format, " ", "           ,__) /");
-        System.out.format(format, " ", "            `..'");
+        System.out.format(format, " ", "            `..'" + ANSI_RESET);
     }
 
     public void drawHangman(){
-        String format = "%1$-60s %2$-10s\n";
+        String format = "%1$-50s %2$-10s\n";
         System.out.println(BACKGROUND_WHITE + BLINK + ANSI_BLACK);
         System.out.format(format, " ", " ___________.._______");
         System.out.format(format, " ", "| .__________))______|");
@@ -539,7 +557,7 @@ public class Terminal {
         System.out.format(format, " ", "|-|-------\\ \\       '-|-|");
         System.out.format(format, " ", "| |        \\ \\        | |");
         System.out.format(format, " ", ": :         \\ \\       : :");
-        System.out.format(format, " ", ". .          `'       . .");
+        System.out.format(format, " ", ". .          `'       . ." + ANSI_RESET);
     }
 
     public static final String ANSI_GREEN = "\033[1;32m";

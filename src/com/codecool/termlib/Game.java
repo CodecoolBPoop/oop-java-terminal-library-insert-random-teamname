@@ -16,18 +16,18 @@ public class Game {
         Arrays.fill(board, unknown);
         ArrayList usedLetters = new ArrayList();
         int lives = 5;
-
         while (lives > 0) {
-            System.out.print(game.BLACK_BOLD + game.BACKGROUND_WHITE + "Lives: " + lives);
-            System.out.print("\t To exit type: 0\t");
+            String format = "%1$-40s %2$-10s\n";
+            System.out.format(format, " ", game.BLACK_BOLD + game.BACKGROUND_WHITE + "Lives: " + lives + "\t To exit type: 0\t");
             //System.out.println("\tThe answer is: " + secretWord);
-            System.out.println(game.BLACK_BOLD + game.BACKGROUND_WHITE + "");
+            System.out.println(game.BLACK_BOLD + game.BACKGROUND_WHITE);
             System.out.println("");
-            System.out.println(board);
+            System.out.format(format, " ", Arrays.toString(board));
             System.out.println("");
             System.out.println("");
             System.out.println(game.BLACK_BOLD + game.ANSI_RED + game.losingLivesHangman(lives) + game.ANSI_RESET);
-            System.out.println(game.BLACK_BOLD + game.BACKGROUND_WHITE + "Used letters:" + usedLetters);
+            System.out.println(game.BLACK_BOLD + game.BACKGROUND_WHITE);
+            System.out.format(format, " ", "Used letters:" + usedLetters);
             game.win(lettersToGuess, board);
             Scanner input = new Scanner(System.in);
             char guess = Character.toLowerCase(input.next().charAt(0));
@@ -37,12 +37,12 @@ public class Game {
 
             if (!Character.isLetter(guess)) {
                 game.clearScreen();
-                System.out.println("Letters only!");
+                System.out.format(format, " ", "Letters only!");
                 continue;
                 }
             game.clearScreen();
             if (game.checkChar(usedLetters, guess)){
-                System.out.println(game.BLACK_BOLD + game.BACKGROUND_WHITE + "You've already guessed this letter!");
+                System.out.format(format, " ", game.BLACK_BOLD + game.BACKGROUND_WHITE + "You've already guessed this letter!");
                 continue;
             }
             usedLetters.add(guess);
